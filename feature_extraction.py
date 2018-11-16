@@ -20,7 +20,7 @@ import argparse
 import pandas as pd
 from collections import OrderedDict
 
-class cluster_reporting_tool:
+class feature_extractor:
     """
     This tool will take as input the brain map - a 3D file and an atlas name.
     User can set a threshold for example <1.3>
@@ -48,6 +48,9 @@ class cluster_reporting_tool:
         self.thresh = threshold
 
         self.volume = volume
+
+        #  List to store all the dictionaries belonging to each feature
+        self.feature_dict_list = []
 
     def getNearestVoxel(self, roi_mask, COG):
         """
@@ -135,7 +138,7 @@ class cluster_reporting_tool:
         # print("Center of Gravity:", MNI)
         return MNI
 
-    def report(self, volume = None, threshold = None):
+    def extract(self, volume = None, threshold = None):
         # To take care if user has given a 4D contrast
         if volume != None:
             self.volume = volume
@@ -165,10 +168,22 @@ class cluster_reporting_tool:
         # Find clusters
         clusters, num_clusters = lb(brain)
 
+        print('######### Num of clusters: ',num_clusters)
         df_report = pd.DataFrame()
 
         # List to store cluster size information
         full_cluster_voxels_percentage_list = []
+
+        # c. Report the name of the region
+
+        atlas_path = self.atlas_dict['atlas_path']
+        atlas_labels_path = self.atlas_dict['atlas_labels_path']
+        atlas_xml_zero_start_index = \
+                           self.atlas_dict['atlas_xml_zero_start_index']
+
+        aal_atlas_obj = au.queryAtlas(atlas_path, atlas_labels_path,
+                  atlas_xml_zero_start_index=atlas_xml_zero_start_index)
+
 
         for cluster_number in range(1,num_clusters + 1):
             # Coordinates that are present in cluster given by cluster_number
@@ -256,149 +271,142 @@ class cluster_reporting_tool:
                 overlapping_indices_zip =  zip(*overlapping_coordinates)
 
                 overlapping_indices_tuple_list = list(overlapping_indices_zip)
-
-                # Number of voxels in the overlap of cluster and atlas region
-                number_overlapping_cluster_voxels = \
-                                            len(overlapping_coordinates)
-
-                # Creating list to be added to dataframe
-                number_overlapping_cluster_voxels_list.append(
-                                              number_overlapping_cluster_voxels)
-
-                #Percentage of voxels in the overlap of cluster and atlas region
-                overlapping_cluster_voxels_percentage = \
-                number_overlapping_cluster_voxels*100 / num_atlas_region_voxels
-
-                # Creating list to be added to dataframe
-                overlapping_cluster_voxels_percentage_list.append(
-                                          overlapping_cluster_voxels_percentage)
-
-                # Assigning the overlap to the empty brain to find COG later
-                brain_zero[overlapping_indices_tuple_list] = \
-                                           brain[overlapping_indices_tuple_list]
-
-                """
-                3. Then use the already created functions to do the following:
-                    a. Find the representative coordinate of the intersection
-
-                Create a dummy atlas (roi_mask) with just one region and label
-                that as 1
-
-                Ref: https://stackoverflow.com/questions/32322281/
-                numpy-matrix-binarization-using-only-one-expression
-                """
-
-                roi_mask_for_unweighted_cog = np.where(brain_zero != 0, 1, 0)
-                roi_mask_for_weighted_cog = brain_zero
-
-
-                cog_unweighted = com(roi_mask_for_unweighted_cog)
-                cog_weighted = com(roi_mask_for_weighted_cog)
-
-                # convert the coordinates to int (math.floor)
-                cog_unweighted = tuple(map(int, cog_unweighted))
-                cog_weighted = tuple(map(int, cog_weighted))
-
-                """
-                If the COG lies outside the overlapping coordinates then find
-                the coordinate that lies on the overlapping region and is
-                closest to the COG.
-                """
-
-                if not roi_mask_for_unweighted_cog[cog_unweighted]:
-                    cog_unweighted = \
-                              tuple(self.getNearestVoxel(roi_mask_for_unweighted_cog,
-                                                   cog_unweighted))
-
-                if not roi_mask_for_weighted_cog[cog_weighted]:
-                    cog_weighted= \
-                              tuple(self.getNearestVoxel(roi_mask_for_weighted_cog,
-                                                   cog_weighted))
-
-                print('COM Unweighted', cog_unweighted)
-                print('COM Weighted', cog_weighted)
-
-                # Finding the values at the cluster representative coordinates
-                cog_unweighted_value = brain[cog_unweighted]
-                cog_weighted_value = brain[cog_weighted]
-
-                # Lists to be added to dataframe
-                cog_unweighted_value_list.append(cog_unweighted_value)
-                cog_weighted_value_list.append(cog_weighted_value)
-
-                # b. Convert the cartesian coordinates to MNI
-                MNI_cog_unweighted = self._XYZ2MNI(cog_unweighted)
-                MNI_cog_weighted = self._XYZ2MNI(cog_weighted)
-
-                # Convert the list of coordinates to string to get rid of:
-                # Exception: Data must be 1-dimensional
-
-
-                str_cog_unweighted = ''
-                for i in MNI_cog_unweighted:
-                    str_cog_unweighted = str_cog_unweighted + ' ' + str(i)
-
-                str_cog_weighted = ''
-                for i in MNI_cog_weighted:
-                    str_cog_weighted = str_cog_weighted + ' ' + str(i)
-
-
-
-                # Lists to be added to dataframe
-                MNI_cog_unweighted_list.append(str_cog_unweighted)
-                MNI_cog_weighted_list.append(str_cog_weighted)
-
-
-                # c. Report the name of the region
-
-                atlas_path = self.atlas_dict['atlas_path']
-                atlas_labels_path = self.atlas_dict['atlas_labels_path']
-                atlas_xml_zero_start_index = \
-                                   self.atlas_dict['atlas_xml_zero_start_index']
-
-                aal_atlas_obj = au.queryAtlas(atlas_path, atlas_labels_path,
-                          atlas_xml_zero_start_index=atlas_xml_zero_start_index)
-
-
-                # Names of the regions of COG
-                cog_region_name_weighted = \
-                              aal_atlas_obj.getAtlasRegions(MNI_cog_weighted)[1]
-                cog_region_name_unweighted = \
-                            aal_atlas_obj.getAtlasRegions(MNI_cog_unweighted)[1]
-
-                print('Region name weighted COG: ',cog_region_name_weighted)
-
-                print('Region name unweighter COG: ',cog_region_name_unweighted)
-
-                # List created to be added to dataframe
-                cog_region_name_weighted_list.append(cog_region_name_weighted)
-                cog_region_name_unweighted_list.append(cog_region_name_unweighted)
-
-                #  To choose from weighted and unweighted COG options
-                WEIGHTED = True
-
-                if WEIGHTED:
-                    MNI_cog_list = MNI_cog_weighted_list
-                    cog_region_name_list = cog_region_name_weighted_list
-                    cog_value_list = cog_weighted_value_list
-                else:
-                    pass
-
-                # Sort the Regions bsed on cog value
-
-                # Get the indices of elements after they are sorted
-                sorted_indices = np.argsort(cog_value_list)
-
-                #  Sort the lists according to the above sorted_indices
-                cog_value_list = np.array(cog_value_list)[sorted_indices]
-                number_overlapping_cluster_voxels_list = \
-                np.array(number_overlapping_cluster_voxels_list)[sorted_indices]
-
-                overlapping_cluster_voxels_percentage_list = \
-                np.array(overlapping_cluster_voxels_percentage_list)[sorted_indices]
-
-                MNI_cog_list = np.array(MNI_cog_list)[sorted_indices]
-                cog_region_name_list = np.array(cog_region_name_list)[sorted_indices]
+                #
+                # # Number of voxels in the overlap of cluster and atlas region
+                # number_overlapping_cluster_voxels = \
+                #                             len(overlapping_coordinates)
+                #
+                # # Creating list to be added to dataframe
+                # number_overlapping_cluster_voxels_list.append(
+                #                               number_overlapping_cluster_voxels)
+                #
+                # #Percentage of voxels in the overlap of cluster and atlas region
+                # overlapping_cluster_voxels_percentage = \
+                # number_overlapping_cluster_voxels*100 / num_atlas_region_voxels
+                #
+                # # Creating list to be added to dataframe
+                # overlapping_cluster_voxels_percentage_list.append(
+                #                           overlapping_cluster_voxels_percentage)
+                #
+                # # Assigning the overlap to the empty brain to find COG later
+                # brain_zero[overlapping_indices_tuple_list] = \
+                #                            brain[overlapping_indices_tuple_list]
+                #
+                # """
+                # 3. Then use the already created functions to do the following:
+                #     a. Find the representative coordinate of the intersection
+                #
+                # Create a dummy atlas (roi_mask) with just one region and label
+                # that as 1
+                #
+                # Ref: https://stackoverflow.com/questions/32322281/
+                # numpy-matrix-binarization-using-only-one-expression
+                # """
+                #
+                # roi_mask_for_unweighted_cog = np.where(brain_zero != 0, 1, 0)
+                # roi_mask_for_weighted_cog = brain_zero
+                #
+                #
+                # cog_unweighted = com(roi_mask_for_unweighted_cog)
+                # cog_weighted = com(roi_mask_for_weighted_cog)
+                #
+                # # convert the coordinates to int (math.floor)
+                # cog_unweighted = tuple(map(int, cog_unweighted))
+                # cog_weighted = tuple(map(int, cog_weighted))
+                #
+                # """
+                # If the COG lies outside the overlapping coordinates then find
+                # the coordinate that lies on the overlapping region and is
+                # closest to the COG.
+                # """
+                #
+                # if not roi_mask_for_unweighted_cog[cog_unweighted]:
+                #     cog_unweighted = \
+                #               tuple(self.getNearestVoxel(roi_mask_for_unweighted_cog,
+                #                                    cog_unweighted))
+                #
+                # if not roi_mask_for_weighted_cog[cog_weighted]:
+                #     cog_weighted= \
+                #               tuple(self.getNearestVoxel(roi_mask_for_weighted_cog,
+                #                                    cog_weighted))
+                #
+                # print('COM Unweighted', cog_unweighted)
+                # print('COM Weighted', cog_weighted)
+                #
+                # # Finding the values at the cluster representative coordinates
+                # cog_unweighted_value = brain[cog_unweighted]
+                # cog_weighted_value = brain[cog_weighted]
+                #
+                # # Lists to be added to dataframe
+                # cog_unweighted_value_list.append(cog_unweighted_value)
+                # cog_weighted_value_list.append(cog_weighted_value)
+                #
+                # # b. Convert the cartesian coordinates to MNI
+                # MNI_cog_unweighted = self._XYZ2MNI(cog_unweighted)
+                # MNI_cog_weighted = self._XYZ2MNI(cog_weighted)
+                #
+                # # Convert the list of coordinates to string to get rid of:
+                # # Exception: Data must be 1-dimensional
+                #
+                #
+                # str_cog_unweighted = ''
+                # for i in MNI_cog_unweighted:
+                #     str_cog_unweighted = str_cog_unweighted + ' ' + str(i)
+                #
+                # str_cog_weighted = ''
+                # for i in MNI_cog_weighted:
+                #     str_cog_weighted = str_cog_weighted + ' ' + str(i)
+                #
+                #
+                #
+                # # Lists to be added to dataframe
+                # MNI_cog_unweighted_list.append(str_cog_unweighted)
+                # MNI_cog_weighted_list.append(str_cog_weighted)
+                #
+                #
+                # # c. Report the name of the region
+                #
+                #
+                #
+                # # Names of the regions of COG
+                # cog_region_name_weighted = \
+                #               aal_atlas_obj.getAtlasRegions(MNI_cog_weighted)[1]
+                # cog_region_name_unweighted = \
+                #             aal_atlas_obj.getAtlasRegions(MNI_cog_unweighted)[1]
+                #
+                # print('Region name weighted COG: ',cog_region_name_weighted)
+                #
+                # print('Region name unweighter COG: ',cog_region_name_unweighted)
+                #
+                # # List created to be added to dataframe
+                # cog_region_name_weighted_list.append(cog_region_name_weighted)
+                # cog_region_name_unweighted_list.append(cog_region_name_unweighted)
+                #
+                # #  To choose from weighted and unweighted COG options
+                # WEIGHTED = True
+                #
+                # if WEIGHTED:
+                #     MNI_cog_list = MNI_cog_weighted_list
+                #     cog_region_name_list = cog_region_name_weighted_list
+                #     cog_value_list = cog_weighted_value_list
+                # else:
+                #     pass
+                #
+                # # Sort the Regions bsed on cog value
+                #
+                # # Get the indices of elements after they are sorted
+                # sorted_indices = np.argsort(cog_value_list)
+                #
+                # #  Sort the lists according to the above sorted_indices
+                # cog_value_list = np.array(cog_value_list)[sorted_indices]
+                # number_overlapping_cluster_voxels_list = \
+                # np.array(number_overlapping_cluster_voxels_list)[sorted_indices]
+                #
+                # overlapping_cluster_voxels_percentage_list = \
+                # np.array(overlapping_cluster_voxels_percentage_list)[sorted_indices]
+                #
+                # MNI_cog_list = np.array(MNI_cog_list)[sorted_indices]
+                # cog_region_name_list = np.array(cog_region_name_list)[sorted_indices]
 
 
                 """
@@ -410,19 +418,23 @@ class cluster_reporting_tool:
                 """
                 # Creating a dictionary to create dataframe
                 df_dict = OrderedDict()
-
+                df_dict['ROI Index'] = [self.volume]
                 df_dict['Cluster Number'] = [cluster_number]
-                df_dict['Max Value'] = cog_value_list
-                df_dict['Num Voxels'] = number_overlapping_cluster_voxels_list
-                df_dict['Percentage of Voxel' ] = \
-                                     overlapping_cluster_voxels_percentage_list
-                df_dict['MNI Coordinates'] = MNI_cog_list
-                df_dict['Region Name'] = cog_region_name_list
+                df_dict['Cluster Label'] = [label]
+                #
+                # df_dict['Max Value'] = cog_value_list
+                # df_dict['Num Voxels'] = number_overlapping_cluster_voxels_list
+                # df_dict['Percentage of Voxel' ] = \
+                #                      overlapping_cluster_voxels_percentage_list
+                # df_dict['MNI Coordinates'] = MNI_cog_list
+                # df_dict['Region Name'] = cog_region_name_list
+                df_dict['overlapping_indices_tuple_list'] = overlapping_indices_tuple_list
 
+                self.feature_dict_list.append(df_dict)
 
-                df = pd.DataFrame(df_dict)
-
-                df_report = df_report.append(df)
+                # df = pd.DataFrame(df_dict)
+                #
+                # df_report = df_report.append(df)
 
                 # Empty the lists to be filled again
                 cog_value_list = []
@@ -431,63 +443,64 @@ class cluster_reporting_tool:
                 MNI_cog_list = []
                 cog_region_name_list = []
 
-
-                """
-                TODO:
-                The order of the columns is not maintained
-                Test again about the validity of results. The number of voxels
-                is very low. Check it!
-
-                DONE:
-                Store each of the coordinates in cog_list, names in
-                name_list, values in value_list, number of voxels etc.
-                Find the max of the value_list and corresponding name in
-                name_list and also calculate other details and store them in
-                lists.
-
-                Create a distionary with all the above created lists.
-
-                Create a empty data frame and add the above created dictionary
-                in it.
-
-                ATLAS NAME
-                SIZE (MM)
-
-                In one For loop create the details about cluster1 and store them
-                in lists as said above. As said above, add these lists in a
-                dictionary.
-                Then this dictionary is added to a dataframe.
-
-                The table should look like the following:
-
-                ROI1 Cluster1 MaxValue COG Region Total_#_voxels %_voxels
-                              MaxValue COG Region #_voxels %_voxles_overlap
-                              Value2   COG Region #_voxels %_voxles_overlap
-                              Value3   COG Region #_voxels %_voxles_overlap
-                              .        .
-                              .        .
-                              .        .
-                     Cluster2 MaxValue COG Region Total_#_voxels
-                               MaxValue COG Region #_voxels %_voxles_overlap
-                               Value2   COG Region #_voxels %_voxles_overlap
-                               Value3   COG Region #_voxels %_voxles_overlap
-                               .        .
-                               .        .
-                               .        .
-
-                """
-
-
-
-                pass
-
-                brain_zero.fill(0)
-
-                    # d. Number and Percentage of voxels overlapping the region
-                    # e. Peak coordinate of the cluster
-        df_report.to_csv('ClusterReport.csv', index = False)
-        # TODO Test the function
-
+        #
+        #         """
+        #         TODO:
+        #         The order of the columns is not maintained
+        #         Test again about the validity of results. The number of voxels
+        #         is very low. Check it!
+        #
+        #         DONE:
+        #         Store each of the coordinates in cog_list, names in
+        #         name_list, values in value_list, number of voxels etc.
+        #         Find the max of the value_list and corresponding name in
+        #         name_list and also calculate other details and store them in
+        #         lists.
+        #
+        #         Create a distionary with all the above created lists.
+        #
+        #         Create a empty data frame and add the above created dictionary
+        #         in it.
+        #
+        #         ATLAS NAME
+        #         SIZE (MM)
+        #
+        #         In one For loop create the details about cluster1 and store them
+        #         in lists as said above. As said above, add these lists in a
+        #         dictionary.
+        #         Then this dictionary is added to a dataframe.
+        #
+        #         The table should look like the following:
+        #
+        #         ROI1 Cluster1 MaxValue COG Region Total_#_voxels %_voxels
+        #                       MaxValue COG Region #_voxels %_voxles_overlap
+        #                       Value2   COG Region #_voxels %_voxles_overlap
+        #                       Value3   COG Region #_voxels %_voxles_overlap
+        #                       .        .
+        #                       .        .
+        #                       .        .
+        #              Cluster2 MaxValue COG Region Total_#_voxels
+        #                        MaxValue COG Region #_voxels %_voxles_overlap
+        #                        Value2   COG Region #_voxels %_voxles_overlap
+        #                        Value3   COG Region #_voxels %_voxles_overlap
+        #                        .        .
+        #                        .        .
+        #                        .        .
+        #
+        #         """
+        #
+        #
+        #
+        #         pass
+        #
+        #         brain_zero.fill(0)
+        #
+        #             # d. Number and Percentage of voxels overlapping the region
+        #             # e. Peak coordinate of the cluster
+        # df_report.to_csv('ClusterReport.csv', index = False)
+        # # TODO Test the function
+    def get_feature_dict_list(self):
+        return self.feature_dict_list
 
 if __name__ == "__main__":
     # construct the argument parser and parse the arguments
@@ -499,16 +512,15 @@ if __name__ == "__main__":
     ap.add_argument("-t", "--thresh", required=False,
                     help="Threshold")
     ap.add_argument("-v", "--vol", required=False,
-                    help="Volume Number (If a 4D contrast is used as input) \
-                    [Starts from 1]")
+                    help="Total number of volumes")
 
 
     args = vars(ap.parse_args())
 
 
 
-    base_path = '/home/varun/Projects/fmri/' + \
-    'Autism-survey-connectivity-links-analysis/'
+    base_path = '/home/varun/Projects/fmri/feature_extractor/'
+
 
     if args["contrast"] != None:
         contrast = args["contrast"]
@@ -545,6 +557,12 @@ if __name__ == "__main__":
         atlas_path = [base_path + 'aalAtlas/AAL.nii.gz']
         atlas_labels_path = [base_path + 'aalAtlas/AAL.xml']
         atlas_xml_zero_start_index  =  False
+    elif atlas == 'fb':
+        atlas_path = [base_path +
+        'Full_brain_atlas_thr0-2mm/fullbrain_atlas_thr0-2mm.nii.gz']
+        atlas_labels_path = [base_path +
+        'Full_brain_atlas_thr0-2mm/fullbrain_atlas.xml']
+        atlas_xml_zero_start_index  =  True
 
     atlas_dict = {
     'atlas_path': atlas_path,
@@ -553,5 +571,12 @@ if __name__ == "__main__":
     }
 
 
-    crl_obj = cluster_reporting_tool(contrast, atlas_dict, threshold, volume)
-    crl_obj.report()
+    crl_obj = feature_extractor(contrast, atlas_dict, threshold)
+
+    if volume > 0:
+        for i in range(volume):
+            crl_obj.extract(volume=i)
+    else:
+        crl_obj.extract(volume=0)
+
+    get_feature_dict_list = crl_obj.get_feature_dict_list()
