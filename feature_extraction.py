@@ -19,6 +19,8 @@ from utils import atlasUtility as au
 import argparse
 import pandas as pd
 from collections import OrderedDict
+import _pickle as pkl
+
 
 class feature_extractor:
     """
@@ -550,7 +552,7 @@ if __name__ == "__main__":
     else:
         volume = 0
 
-    print("Using Volume_index %s" % str(volume))
+    print("Using %s Number of Volumes " % str(volume))
 
 
     if atlas == 'AAL':
@@ -559,7 +561,7 @@ if __name__ == "__main__":
         atlas_xml_zero_start_index  =  False
     elif atlas == 'fb':
         atlas_path = [base_path +
-        'Full_brain_atlas_thr0-2mm/fullbrain_atlas_thr0-2mm.nii.gz']
+        'Full_brain_atlas_thr0-2mm/fullbrain_atlas_thr0-2mm_resample.nii']
         atlas_labels_path = [base_path +
         'Full_brain_atlas_thr0-2mm/fullbrain_atlas.xml']
         atlas_xml_zero_start_index  =  True
@@ -580,3 +582,6 @@ if __name__ == "__main__":
         crl_obj.extract(volume=0)
 
     get_feature_dict_list = crl_obj.get_feature_dict_list()
+    pkl.dump( get_feature_dict_list, open( "get_feature_dict_list.pkl", "wb" ) )
+
+    # get_feature_dict_list = pkl.load( open ("get_feature_dict_list.pkl", "rb") )
