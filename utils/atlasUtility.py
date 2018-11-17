@@ -83,7 +83,9 @@ class queryAtlas:
 
 
             print('Atlas read')
-            if _atlas.header['pixdim'][1] == 2:
+            if _atlas.header['pixdim'][1] == 3:
+                pixdim = 3
+            elif _atlas.header['pixdim'][1] == 2:
                 pixdim = 2
             elif _atlas.header['pixdim'][1] == 1:
                 pixdim = 1
@@ -116,6 +118,16 @@ class queryAtlas:
         return [x,y,z]
 
     @staticmethod
+    def MNI2XYZ3mm(mni):
+        """
+        Converts the given MNI coordinates to X,Y,Z cartesian coordinates corresponding to the 2mm atlas
+        """
+        x =  math.floor((- mni[0] + 90)/3.0)
+        y = math.floor((mni[1] + 126)/3.0)
+        z = math.floor((mni[2] + 72)/3.0)
+        return [x,y,z]
+
+    @staticmethod
     def XYZ2MNI1mm(xyz):
         """
         Converts the given X,Y,Z cartesian coordinates to MNI coordinates corresponding to the 1mm atlas
@@ -134,6 +146,16 @@ class queryAtlas:
         mni_x = - 2*xyz[0] + 90
         mni_y = 2*xyz[1] - 126
         mni_z = 2*xyz[2] -72
+        return [mni_x, mni_y, mni_z]
+    @staticmethod
+
+    def XYZ2MNI3mm(xyz):
+        """
+        Converts the given X,Y,Z cartesian coordinates to MNI coordinates corresponding to the 2mm atlas
+        """
+        mni_x = - 3*xyz[0] + 90
+        mni_y = 3*xyz[1] - 126
+        mni_z = 3*xyz[2] -72
         return [mni_x, mni_y, mni_z]
 
     def roiName(self, atlasLabelsPath, roiNum):
@@ -189,7 +211,9 @@ class queryAtlas:
 
             if roiNumber == None or self.prob == True:
 
-                if self.pixdim_list[index] == 2:
+                if self.pixdim_list[index] == 3:
+                    x,y,z = self.MNI2XYZ3mm(coordMni)
+                elif self.pixdim_list[index] == 2:
                     x,y,z = self.MNI2XYZ2mm(coordMni)
                 elif self.pixdim_list[index] == 1:
                     x,y,z = self.MNI2XYZ1mm(coordMni)
@@ -360,7 +384,9 @@ class queryAtlas:
         """
         mni_list = []
         for xyz in xyz_list:
-            if self.pixdim_list[atlas_index] == 2:
+            if self.pixdim_list[atlas_index] == 3:
+                mni_list.append(self.XYZ2MNI3mm(xyz))
+            elif self.pixdim_list[atlas_index] == 2:
                 mni_list.append(self.XYZ2MNI2mm(xyz))
             elif self.pixdim_list[atlas_index] == 1:
                 mni_list.append(self.XYZ2MNI1mm(xyz))
@@ -375,13 +401,13 @@ class queryAtlas:
         """
         mm_cord_list = []
         for voxel_coord in voxel_coord_list:
-            if self.pixdim_list[atlas_index] == 2:
+            if self.pixdim_list[atlas_index] == 3:
+                mm_cord_list.append([i * 3 for i in voxel_coord]) # One Voxel = 3mm
+            elif self.pixdim_list[atlas_index] == 2:
                 mm_cord_list.append([i * 2 for i in voxel_coord]) # One Voxel = 2mm
             elif self.pixdim_list[atlas_index] == 1:
                 mm_cord_list.append(voxel_coord)
         return mm_cord_list
-
-
 
 
     def get_neighbouring_coordinates(self,x,y,z, itr, atlas_index, largest=1):
