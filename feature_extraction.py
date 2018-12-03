@@ -170,7 +170,7 @@ class feature_extractor:
         # Find clusters
         clusters, num_clusters = lb(brain)
 
-        print('######### Num of clusters: ',num_clusters)
+        # print('######### Num of clusters: ',num_clusters)
         df_report = pd.DataFrame()
 
         # List to store cluster size information
@@ -513,13 +513,18 @@ if __name__ == "__main__":
                     help="Path to Atlas file")
     ap.add_argument("-t", "--thresh", required=False,
                     help="Threshold")
+    ap.add_argument("-ct", "--clusterthresh", required=False,
+                    help="Min Number of voxels in a cluster")
     ap.add_argument("-v", "--vol", required=False,
                     help="Total number of volumes")
 
 
     args = vars(ap.parse_args())
-
-
+    if args["clusterthresh"] != None:
+        cluster_thresh = int(args["clusterthresh"])
+    else:
+        cluster_thresh = 20
+    print('Using Cluster threshold of %s'%cluster_thresh)
 
     base_path = '/home/varun/Projects/fmri/feature_extractor/'
 
@@ -573,6 +578,7 @@ if __name__ == "__main__":
     }
 
 
+
     crl_obj = feature_extractor(contrast, atlas_dict, threshold)
 
     if volume > 0:
@@ -582,6 +588,12 @@ if __name__ == "__main__":
         crl_obj.extract(volume=0)
 
     get_feature_dict_list = crl_obj.get_feature_dict_list()
-    pkl.dump( get_feature_dict_list, open( "get_feature_dict_list.pkl", "wb" ) )
+    count = 0
+    for dict in get_feature_dict_list:
+        if len(dict['overlapping_indices_tuple_list'][0]) > cluster_thresh:
+            # print(len(dict['overlapping_indices_tuple_list'][0]))
+            count = count + 1
 
+    print('Number of clusters greater than %s voxels = %s'%(cluster_thresh, count))
+    pkl.dump( get_feature_dict_list, open( "get_feature_dict_list.pkl", "wb" ) )
     # get_feature_dict_list = pkl.load( open ("get_feature_dict_list.pkl", "rb") )
