@@ -257,9 +257,9 @@
   <label index="244" x="38" y="55" z="38">lPFtha_L</label>
   <label index="245" x="51" y="58" z="39">lPFtha_R</label>
   <label index="246" x="96" y="81" z="55">Left I-IV</label>
-  <label index="245" x="84" y="80" z="56">Right I-IV</label>
+  <label index="247" x="84" y="80" z="56">Right I-IV</label>
   <label index="248" x="107" y="78" z="52">Left V</label>
-  <label index="259" x="73" y="77" z="52">Right V</label>
+  <label index="249" x="73" y="77" z="52">Right V</label>
   <label index="250" x="104" y="58" z="51">Left VI</label>
   <label index="251" x="90" y="53" z="51">Vermis VI</label>
   <label index="252" x="69" y="61" z="49">Right VI</label>
