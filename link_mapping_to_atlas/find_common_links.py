@@ -239,6 +239,10 @@ have an important role to play. As the analysis is Seed-voxel and not seed-seed,
 result is not guranteed. But if we get a symetricity, then that specifies a strong connection between two regions.
 
 Things to experiment:
+0.1 How many Links are both A-B and B-A.
+Answer: 79 pairs of A-B and B-A i.e 79 links were bidirectional
+Question: Are the above pairs consistent? That is, Is the connectivity of A-B == B-A
+
 1. How many of the replicated links were underconencted, overconnected or inconsistent
 2. How many of the replicate links had been replicated multiple times in Review (BN regions + CBLM)
    and how many are first time replicated
