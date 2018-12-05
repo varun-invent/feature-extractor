@@ -1,0 +1,1230 @@
+ROI_name,Region Name,SUM of UC,SUM of OC,Inconsistency,Equal,Label
+A21r_R,Right I-IV,1,1,True,False,1
+A31_L,A31_L,1,1,True,True,2
+A11m_L,dmPOS_R,5,0,False,False,3
+A10m_R,A8dl_L,4,0,False,False,4
+A21c_L,A10l_L,4,0,False,False,5
+A21c_L,A12/47o_L,4,0,False,False,6
+A21c_L,A9/46d_L,4,0,False,False,7
+A23c_R,A13_L,4,0,False,False,8
+A23c_R,A24rv_R,4,0,False,False,9
+A37lv_L,A40rv_L,4,0,False,False,10
+A37lv_L,dmPOS_R,4,0,False,False,11
+A10m_R,A8vl_L,3,0,False,False,12
+A14m_L,dmPOS_R,3,0,False,False,13
+A21c_L,IFJ_L,3,0,False,False,14
+A21r_L,A9l_L,3,0,False,False,15
+A21r_R,A39rv_L,3,0,False,False,16
+A23c_R,A32sg_L,3,0,False,False,17
+A31_L,A21c_L,3,0,False,False,18
+A31_L,A21r_R,3,0,False,False,19
+A32sg_L,dmPOS_R,3,0,False,False,20
+A37elv_R,dmPOS_L,3,0,False,False,21
+A37lv_L,A37lv_R,3,0,False,False,22
+A37lv_L,A40rd_L,3,0,False,False,23
+A37lv_L,V5/MT+_R,3,0,False,False,24
+A37lv_L,vmPOS_R,3,0,False,False,25
+A37lv_R,A2_L,3,0,False,False,26
+A37lv_R,lsOccG_L,3,0,False,False,27
+A37lv_R,msOccG_L,3,0,False,False,28
+A37lv_R,V5/MT+_L,3,0,False,False,29
+aSTS_L,A21r_R,3,0,False,False,30
+rpSTS_L,aSTS_R,3,0,False,False,31
+vmPu_R,Left VI,3,0,False,False,32
+A1/2/3ll_L,A1/2/3tru_L,2,0,False,False,33
+A1/2/3tonIa_L,dIg_L,2,0,False,False,34
+A1/2/3tru_L,A4ll_L,2,0,False,False,35
+A10m_R,A23d_L,2,0,False,False,36
+A10m_R,A31_R,2,0,False,False,37
+A10m_R,A39rv_L,2,0,False,False,38
+A10m_R,A9m_L,2,0,False,False,39
+A11m_L,A8dl_L,2,0,False,False,40
+A11m_L,vmPOS_R,2,0,False,False,41
+A11m_R,A10m_L,2,0,False,False,42
+A11m_R,A10m_R,2,0,False,False,43
+A11m_R,A31_L,2,0,False,False,44
+A11m_R,A9l_L,2,0,False,False,45
+A11m_R,aSTS_R,2,0,False,False,46
+A11m_R,IFJ_R,2,0,False,False,47
+A11m_R,Left I-IV,2,0,False,False,48
+A12/47o_L,aSTS_L,2,0,False,False,49
+A12/47o_L,aSTS_R,2,0,False,False,50
+A14m_L,A23d_L,2,0,False,False,51
+A14m_L,A23d_R,2,0,False,False,52
+A14m_R,A1/2/3tru_R,2,0,False,False,53
+A14m_R,A23d_L,2,0,False,False,54
+A14m_R,A23d_R,2,0,False,False,55
+A14m_R,dmPOS_R,2,0,False,False,56
+A20cl_L,A6cvl_L,2,0,False,False,57
+A20cl_L,A6vl_L,2,0,False,False,58
+A20il_L,A10m_R,2,0,False,False,59
+A20il_L,A9/46d_L,2,0,False,False,60
+A21c_L,A10m_L,2,0,False,False,61
+A21c_L,A11m_R,2,0,False,False,62
+A21c_L,A12/47l_L,2,0,False,False,63
+A21c_L,A20il_L,2,0,False,False,64
+A21c_L,A21r_R,2,0,False,False,65
+A21c_L,A39rv_R,2,0,False,False,66
+A21c_L,A46_L,2,0,False,False,67
+A21c_L,A8m_L,2,0,False,False,68
+A21c_L,aSTS_R,2,0,False,False,69
+A21r_L,A1/2/3ll_L,2,0,False,False,70
+A21r_L,A10m_L,2,0,False,False,71
+A21r_L,A14m_R,2,0,False,False,72
+A21r_L,A23d_L,2,0,False,False,73
+A21r_L,A31_R,2,0,False,False,74
+A21r_L,A39rv_L,2,0,False,False,75
+A21r_L,A40c_L,2,0,False,False,76
+A21r_L,A8dl_L,2,0,False,False,77
+A21r_L,aSTS_L,2,0,False,False,78
+A21r_L,dmPOS_R,2,0,False,False,79
+A21r_R,A10m_L,2,0,False,False,80
+A21r_R,A31_L,2,0,False,False,81
+A21r_R,A31_R,2,0,False,False,82
+A21r_R,A32sg_L,2,0,False,False,83
+A21r_R,A41/42_L,2,0,False,False,84
+A21r_R,A8dl_R,2,0,False,False,85
+A21r_R,aSTS_L,2,0,False,False,86
+A23c_L,A38m_R,2,0,False,False,87
+A23c_R,A13_R,2,0,False,False,88
+A23c_R,A14m_L,2,0,False,False,89
+A23c_R,A38l_R,2,0,False,False,90
+A23c_R,NAC_L,2,0,False,False,91
+A23c_R,vCa_L,2,0,False,False,92
+A23c_R,vIa_R,2,0,False,False,93
+A23c_R,vmPu_R,2,0,False,False,94
+A23v_R,A14m_R,2,0,False,False,95
+A31_L,A10m_R,2,0,False,False,96
+A31_L,A12/47o_L,2,0,False,False,97
+A31_L,A14m_R,2,0,False,False,98
+A31_L,A31_R,2,0,False,False,99
+A31_L,aSTS_R,2,0,False,False,100
+A32sg_L,A23d_L,2,0,False,False,101
+A32sg_L,A23d_R,2,0,False,False,102
+A37elv_L,A40rd_L,2,0,False,False,103
+A37elv_L,A40rd_R,2,0,False,False,104
+A37elv_L,A6dl_L,2,0,False,False,105
+A37elv_L,A6vl_L,2,0,False,False,106
+A6vl_L,A37elv_L,2,0,False,False,106
+A37elv_L,lsOccG_L,2,0,False,False,107
+A37elv_R,A6cvl_R,2,0,False,False,108
+A37elv_R,A7ip_R,2,0,False,False,109
+A37elv_R,dmPOS_R,2,0,False,False,110
+A37lv_L,A1/2/3ulhf_R,2,0,False,False,111
+A37lv_L,A2_L,2,0,False,False,112
+A37lv_L,A2_R,2,0,False,False,113
+A37lv_L,A39c_L,2,0,False,False,114
+A37lv_L,A39c_R,2,0,False,False,115
+A37lv_L,A40rd_R,2,0,False,False,116
+A37lv_L,A6cdl_R,2,0,False,False,117
+A37lv_L,A6cvl_R,2,0,False,False,118
+A37lv_L,A7c_L,2,0,False,False,119
+A37lv_L,A7c_R,2,0,False,False,120
+A37lv_L,A7ip_L,2,0,False,False,121
+A37lv_L,lsOccG_L,2,0,False,False,122
+A37lv_L,lsOccG_R,2,0,False,False,123
+lsOccG_R,A37lv_L,2,0,False,False,123
+A37lv_L,OPC_L,2,0,False,False,124
+A37lv_R,A39c_R,2,0,False,False,125
+A37lv_R,A40rd_L,2,0,False,False,126
+A37lv_R,A40rv_R,2,0,False,False,127
+A37lv_R,A6cdl_R,2,0,False,False,128
+A37lv_R,A6cvl_R,2,0,False,False,129
+A37lv_R,A7c_L,2,0,False,False,130
+A37lv_R,dmPOS_L,2,0,False,False,131
+A37lv_R,dmPOS_R,2,0,False,False,132
+A37lv_R,iOccG_L,2,0,False,False,133
+A37lv_R,iOccG_R,2,0,False,False,134
+A37lv_R,vmPOS_R,2,0,False,False,135
+A38m_L,A10m_L,2,0,False,False,136
+A38m_L,A9l_R,2,0,False,False,137
+A38m_L,A9m_R,2,0,False,False,138
+A38m_L,rpSTS_L,2,0,False,False,139
+rpSTS_L,A38m_L,2,0,False,False,139
+A38m_R,A40rv_R,2,0,False,False,140
+A38m_R,A9m_L,2,0,False,False,141
+A6vl_L,A10l_R,2,0,False,False,142
+A7ip_L,lsOccG_R,2,0,False,False,143
+A8dl_L,aSTS_L,2,0,False,False,144
+aSTS_L,A8dl_L,2,0,False,False,144
+A8dl_L,aSTS_R,2,0,False,False,145
+A9m_R,A20rv_R,2,0,False,False,146
+aSTS_L,A14m_L,2,0,False,False,147
+aSTS_L,A39rv_L,2,0,False,False,148
+aSTS_L,A9l_R,2,0,False,False,149
+aSTS_L,A9m_R,2,0,False,False,150
+aSTS_R,A1/2/3tru_R,2,0,False,False,151
+aSTS_R,A41/42_L,2,0,False,False,152
+aSTS_R,A9m_L,2,0,False,False,153
+aSTS_R,TE1.0/TE1.2_L,2,0,False,False,154
+cpSTS_R,TE1.0/TE1.2_R,2,0,False,False,155
+lsOccG_R,A20cl_R,2,0,False,False,156
+rpSTS_L,A12/47o_R,2,0,False,False,157
+rpSTS_L,A38l_R,2,0,False,False,158
+vmPOS_L,A20rv_R,2,0,False,False,159
+vmPOS_L,A38m_L,2,0,False,False,160
+vmPOS_L,rpSTS_R,2,0,False,False,161
+vmPOS_R,A20rv_R,2,0,False,False,162
+vmPu_R,A23d_R,2,0,False,False,163
+A1/2/3ll_L,A1/2/3ulhf_L,1,0,False,False,164
+A1/2/3ll_L,A2_L,1,0,False,False,165
+A1/2/3ll_L,A40rd_L,1,0,False,False,166
+A1/2/3ll_L,A4t_L,1,0,False,False,167
+A1/2/3ll_R,A1/2/3tru_L,1,0,False,False,168
+A1/2/3tru_L,A1/2/3ll_R,1,0,False,False,168
+A1/2/3ll_R,A5m_L,1,0,False,False,169
+A1/2/3tonIa_L,A40rv_R,1,0,False,False,170
+A1/2/3tru_L,A1/2/3ll_L,1,0,False,False,171
+A1/2/3tru_L,A1/2/3ulhf_L,1,0,False,False,172
+A1/2/3tru_L,A4hf_L,1,0,False,False,173
+A1/2/3tru_L,A4ll_R,1,0,False,False,174
+A1/2/3tru_R,A1/2/3ulhf_L,1,0,False,False,175
+A1/2/3tru_R,A4hf_L,1,0,False,False,176
+A1/2/3ulhf_L,A1/2/3ulhf_R,1,0,False,False,177
+A1/2/3ulhf_L,A4hf_R,1,0,False,False,178
+A10l_L,Left Crus II,1,0,False,False,179
+A10m_L,A21r_R,1,0,False,False,180
+A10m_L,A9m_L,1,0,False,False,181
+A10m_R,A1/2/3ll_L,1,0,False,False,182
+A10m_R,A10m_L,1,0,False,False,183
+A10m_R,A12/47o_L,1,0,False,False,184
+A10m_R,A14m_L,1,0,False,False,185
+A14m_L,A10m_R,1,0,False,False,185
+A10m_R,A14m_R,1,0,False,False,186
+A14m_R,A10m_R,1,0,False,False,186
+A10m_R,A20il_L,1,0,False,False,187
+A10m_R,A21r_L,1,0,False,False,188
+A21r_L,A10m_R,1,0,False,False,188
+A10m_R,A23c_L,1,0,False,False,189
+A10m_R,A23c_R,1,0,False,False,190
+A10m_R,A23d_R,1,0,False,False,191
+A10m_R,A23v_L,1,0,False,False,192
+A23v_L,A10m_R,1,0,False,False,192
+A10m_R,A31_L,1,0,False,False,193
+A10m_R,A32sg_L,1,0,False,False,194
+A10m_R,A38l_L,1,0,False,False,195
+A10m_R,A38m_L,1,0,False,False,196
+A38m_L,A10m_R,1,0,False,False,196
+A10m_R,A4ll_L,1,0,False,False,197
+A10m_R,A6dl_L,1,0,False,False,198
+A10m_R,A6vl_L,1,0,False,False,199
+A10m_R,A8dl_R,1,0,False,False,200
+A10m_R,A8m_L,1,0,False,False,201
+A10m_R,A8vl_R,1,0,False,False,202
+A10m_R,A9l_L,1,0,False,False,203
+A10m_R,aSTS_L,1,0,False,False,204
+aSTS_L,A10m_R,1,0,False,False,204
+A10m_R,dmPOS_L,1,0,False,False,205
+A10m_R,dmPOS_R,1,0,False,False,206
+A10m_R,IFJ_L,1,0,False,False,207
+A10m_R,IFJ_R,1,0,False,False,208
+A10m_R,rCunG_L,1,0,False,False,209
+A10m_R,rCunG_R,1,0,False,False,210
+A10m_R,rLinG_L,1,0,False,False,211
+A10m_R,vmPOS_L,1,0,False,False,212
+A10m_R,vmPOS_R,1,0,False,False,213
+A11m_L,A14m_L,1,0,False,False,214
+A11m_L,A21r_R,1,0,False,False,215
+A11m_L,A23v_L,1,0,False,False,216
+A11m_L,A23v_R,1,0,False,False,217
+A23v_R,A11m_L,1,0,False,False,217
+A11m_L,A31_R,1,0,False,False,218
+A11m_L,dmPOS_L,1,0,False,False,219
+A11m_L,Left I-IV,1,0,False,False,220
+A11m_L,rCunG_R,1,0,False,False,221
+A11m_L,vmPOS_L,1,0,False,False,222
+vmPOS_L,A11m_L,1,0,False,False,222
+A11m_R,A1/2/3tru_R,1,0,False,False,223
+A11m_R,A11m_L,1,0,False,False,224
+A11m_R,A11m_R,1,0,False,True,225
+A11m_R,A14m_L,1,0,False,False,226
+A11m_R,A20il_L,1,0,False,False,227
+A11m_R,A20il_R,1,0,False,False,228
+A11m_R,A21c_L,1,0,False,False,229
+A11m_R,A21r_L,1,0,False,False,230
+A21r_L,A11m_R,1,0,False,False,230
+A11m_R,A21r_R,1,0,False,False,231
+A11m_R,A23d_L,1,0,False,False,232
+A11m_R,A23d_R,1,0,False,False,233
+A11m_R,A23v_L,1,0,False,False,234
+A23v_L,A11m_R,1,0,False,False,234
+A11m_R,A23v_R,1,0,False,False,235
+A23v_R,A11m_R,1,0,False,False,235
+A11m_R,A24rv_L,1,0,False,False,236
+A11m_R,A31_R,1,0,False,False,237
+A11m_R,A39c_L,1,0,False,False,238
+A11m_R,A39rv_L,1,0,False,False,239
+A11m_R,A6vl_L,1,0,False,False,240
+A11m_R,A8dl_L,1,0,False,False,241
+A8dl_L,A11m_R,1,0,False,False,241
+A11m_R,A8dl_R,1,0,False,False,242
+A11m_R,A8vl_L,1,0,False,False,243
+A11m_R,A9/46d_L,1,0,False,False,244
+A11m_R,aSTS_L,1,0,False,False,245
+aSTS_L,A11m_R,1,0,False,False,245
+A11m_R,dmPOS_L,1,0,False,False,246
+A11m_R,dmPOS_R,1,0,False,False,247
+A11m_R,IFJ_L,1,0,False,False,248
+A11m_R,Left IX,1,0,False,False,249
+A11m_R,Left V,1,0,False,False,250
+A11m_R,rCunG_L,1,0,False,False,251
+A11m_R,rCunG_R,1,0,False,False,252
+A11m_R,Right I-IV,1,0,False,False,253
+A11m_R,Right IX,1,0,False,False,254
+A11m_R,Right V,1,0,False,False,255
+A11m_R,rLinG_L,1,0,False,False,256
+A11m_R,rLinG_R,1,0,False,False,257
+A11m_R,V5/MT+_L,1,0,False,False,258
+A11m_R,vmPOS_L,1,0,False,False,259
+vmPOS_L,A11m_R,1,0,False,False,259
+A11m_R,vmPOS_R,1,0,False,False,260
+A12/47l_L,A21c_L,1,0,False,False,261
+A12/47l_L,A22c_L,1,0,False,False,262
+A12/47l_L,aSTS_L,1,0,False,False,263
+aSTS_L,A12/47l_L,1,0,False,False,263
+A12/47l_L,rpSTS_L,1,0,False,False,264
+rpSTS_L,A12/47l_L,1,0,False,False,264
+A12/47o_L,A20cl_L,1,0,False,False,265
+A12/47o_L,A20il_L,1,0,False,False,266
+A20il_L,A12/47o_L,1,0,False,False,266
+A12/47o_L,A21c_L,1,0,False,False,267
+A12/47o_L,A21r_L,1,0,False,False,268
+A21r_L,A12/47o_L,1,0,False,False,268
+A12/47o_L,A22c_L,1,0,False,False,269
+A12/47o_L,A37dl_L,1,0,False,False,270
+A12/47o_L,A8dl_L,1,0,False,False,271
+A12/47o_L,A9l_L,1,0,False,False,272
+A12/47o_L,cpSTS_L,1,0,False,False,273
+A12/47o_L,rpSTS_L,1,0,False,False,274
+rpSTS_L,A12/47o_L,1,0,False,False,274
+A14m_L,A21r_L,1,0,False,False,275
+A21r_L,A14m_L,1,0,False,False,275
+A14m_L,A23c_L,1,0,False,False,276
+A14m_L,A23c_R,1,0,False,False,277
+A14m_L,A23v_L,1,0,False,False,278
+A14m_L,A23v_R,1,0,False,False,279
+A23v_R,A14m_L,1,0,False,False,279
+A14m_L,A31_L,1,0,False,False,280
+A14m_L,A31_R,1,0,False,False,281
+A14m_L,aSTS_L,1,0,False,False,282
+A14m_L,dmPOS_L,1,0,False,False,283
+A14m_L,Left IX,1,0,False,False,284
+A14m_L,rCunG_L,1,0,False,False,285
+A14m_L,rCunG_R,1,0,False,False,286
+A14m_L,Right IX,1,0,False,False,287
+A14m_L,vmPOS_L,1,0,False,False,288
+A14m_L,vmPOS_R,1,0,False,False,289
+A14m_R,A1/2/3ulhf_R,1,0,False,False,290
+A14m_R,A21c_L,1,0,False,False,291
+A21c_L,A14m_R,1,0,False,False,291
+A14m_R,A21r_L,1,0,False,False,292
+A14m_R,A23c_L,1,0,False,False,293
+A14m_R,A23c_R,1,0,False,False,294
+A23c_R,A14m_R,1,0,False,False,294
+A14m_R,A23v_L,1,0,False,False,295
+A14m_R,A23v_R,1,0,False,False,296
+A14m_R,A24rv_L,1,0,False,False,297
+A14m_R,A31_L,1,0,False,False,298
+A14m_R,A31_R,1,0,False,False,299
+A14m_R,A39rv_L,1,0,False,False,300
+A14m_R,A39rv_R,1,0,False,False,301
+A14m_R,aSTS_L,1,0,False,False,302
+aSTS_L,A14m_R,1,0,False,False,302
+A14m_R,dmPOS_L,1,0,False,False,303
+A14m_R,IFJ_R,1,0,False,False,304
+A14m_R,Left I-IV,1,0,False,False,305
+A14m_R,Left IX,1,0,False,False,306
+A14m_R,rCunG_R,1,0,False,False,307
+A14m_R,rLinG_L,1,0,False,False,308
+A14m_R,vmPOS_L,1,0,False,False,309
+A14m_R,vmPOS_R,1,0,False,False,310
+A20cl_L,A10m_L,1,0,False,False,311
+A20cl_L,A6cdl_L,1,0,False,False,312
+A20cl_L,A6dl_L,1,0,False,False,313
+A20cl_L,A8dl_L,1,0,False,False,314
+A8dl_L,A20cl_L,1,0,False,False,314
+A20cl_L,A8vl_L,1,0,False,False,315
+A8vl_L,A20cl_L,1,0,False,False,315
+A20cl_L,A9m_L,1,0,False,False,316
+A20cl_L,IFJ_L,1,0,False,False,317
+IFJ_L,A20cl_L,1,0,False,False,317
+A20il_L,A10m_L,1,0,False,False,318
+A20il_L,A32p_L,1,0,False,False,319
+A20il_L,A32p_R,1,0,False,False,320
+A20il_L,A9l_L,1,0,False,False,321
+A20il_L,A9m_L,1,0,False,False,322
+A20il_L,A9m_R,1,0,False,False,323
+A21c_L,A10m_R,1,0,False,False,324
+A21c_L,A11m_L,1,0,False,False,325
+A21c_L,A12/47o_R,1,0,False,False,326
+A21c_L,A20cv_L,1,0,False,False,327
+A21c_L,A20r_L,1,0,False,False,328
+A21c_L,A21c_R,1,0,False,False,329
+A21c_L,A21r_L,1,0,False,False,330
+A21r_L,A21c_L,1,0,False,False,330
+A21c_L,A23d_L,1,0,False,False,331
+A21c_L,A23d_R,1,0,False,False,332
+A21c_L,A31_L,1,0,False,False,333
+A21c_L,A31_R,1,0,False,False,334
+A21c_L,A32p_L,1,0,False,False,335
+A21c_L,A32p_R,1,0,False,False,336
+A21c_L,A32sg_R,1,0,False,False,337
+A21c_L,A39c_L,1,0,False,False,338
+A21c_L,A39c_R,1,0,False,False,339
+A21c_L,A39rd_L,1,0,False,False,340
+A21c_L,A39rd_R,1,0,False,False,341
+A21c_L,A39rv_L,1,0,False,False,342
+A21c_L,A40c_L,1,0,False,False,343
+A21c_L,A44d_L,1,0,False,False,344
+A21c_L,A44v_L,1,0,False,False,345
+A21c_L,A45c_L,1,0,False,False,346
+A21c_L,A6cdl_L,1,0,False,False,347
+A21c_L,A6cvl_L,1,0,False,False,348
+A21c_L,A6dl_L,1,0,False,False,349
+A21c_L,A6vl_L,1,0,False,False,350
+A6vl_L,A21c_L,1,0,False,False,350
+A21c_L,A8dl_L,1,0,False,False,351
+A8dl_L,A21c_L,1,0,False,False,351
+A21c_L,A8dl_R,1,0,False,False,352
+A21c_L,A8m_R,1,0,False,False,353
+A21c_L,A8vl_L,1,0,False,False,354
+A8vl_L,A21c_L,1,0,False,False,354
+A21c_L,A9/46d_R,1,0,False,False,355
+A21c_L,A9/46v_L,1,0,False,False,356
+A21c_L,A9l_L,1,0,False,False,357
+A21c_L,A9l_R,1,0,False,False,358
+A21c_L,A9m_L,1,0,False,False,359
+A21c_L,A9m_R,1,0,False,False,360
+A21c_L,dmPOS_L,1,0,False,False,361
+A21c_L,dmPOS_R,1,0,False,False,362
+A21c_L,IFJ_R,1,0,False,False,363
+A21c_L,IFS_L,1,0,False,False,364
+A21c_L,mOccG_L,1,0,False,False,365
+A21c_L,rCunG_R,1,0,False,False,366
+A21c_L,Right Crus I,1,0,False,False,367
+A21c_L,Right Crus II,1,0,False,False,368
+A21c_L,vmPOS_L,1,0,False,False,369
+A21c_L,vmPOS_R,1,0,False,False,370
+A21r_L,A11m_L,1,0,False,False,371
+A21r_L,A12/47l_L,1,0,False,False,372
+A21r_L,A20il_L,1,0,False,False,373
+A21r_L,A21c_R,1,0,False,False,374
+A21r_L,A21r_R,1,0,False,False,375
+A21r_R,A21r_L,1,0,False,False,375
+A21r_L,A22c_L,1,0,False,False,376
+A21r_L,A22c_R,1,0,False,False,377
+A21r_L,A22r_R,1,0,False,False,378
+A21r_L,A23c_L,1,0,False,False,379
+A23c_L,A21r_L,1,0,False,False,379
+A21r_L,A23c_R,1,0,False,False,380
+A21r_L,A23d_R,1,0,False,False,381
+A21r_L,A23v_L,1,0,False,False,382
+A23v_L,A21r_L,1,0,False,False,382
+A21r_L,A23v_R,1,0,False,False,383
+A21r_L,A31_L,1,0,False,False,384
+A31_L,A21r_L,1,0,False,False,384
+A21r_L,A32p_L,1,0,False,False,385
+A21r_L,A32sg_R,1,0,False,False,386
+A21r_L,A39c_L,1,0,False,False,387
+A21r_L,A39rd_L,1,0,False,False,388
+A21r_L,A39rd_R,1,0,False,False,389
+A21r_L,A39rv_R,1,0,False,False,390
+A21r_L,A40rv_L,1,0,False,False,391
+A21r_L,A41/42_L,1,0,False,False,392
+A21r_L,A46_R,1,0,False,False,393
+A21r_L,A4ll_L,1,0,False,False,394
+A21r_L,A5m_L,1,0,False,False,395
+A21r_L,A8dl_R,1,0,False,False,396
+A21r_L,A8m_L,1,0,False,False,397
+A21r_L,A9/46d_L,1,0,False,False,398
+A21r_L,A9/46d_R,1,0,False,False,399
+A21r_L,A9l_R,1,0,False,False,400
+A21r_L,A9m_L,1,0,False,False,401
+A9m_L,A21r_L,1,0,False,False,401
+A21r_L,A9m_R,1,0,False,False,402
+A9m_R,A21r_L,1,0,False,False,402
+A21r_L,aSTS_R,1,0,False,False,403
+A21r_L,cpSTS_L,1,0,False,False,404
+cpSTS_L,A21r_L,1,0,False,False,404
+A21r_L,dmPOS_L,1,0,False,False,405
+dmPOS_L,A21r_L,1,0,False,False,405
+A21r_L,Left I-IV,1,0,False,False,406
+A21r_L,rCunG_L,1,0,False,False,407
+A21r_L,rCunG_R,1,0,False,False,408
+A21r_L,rpSTS_L,1,0,False,False,409
+rpSTS_L,A21r_L,1,0,False,False,409
+A21r_L,vmPOS_L,1,0,False,False,410
+vmPOS_L,A21r_L,1,0,False,False,410
+A21r_L,vmPOS_R,1,0,False,False,411
+A21r_R,A1/2/3ll_L,1,0,False,False,412
+A21r_R,A1/2/3ll_R,1,0,False,False,413
+A21r_R,A10m_R,1,0,False,False,414
+A21r_R,A12/47o_L,1,0,False,False,415
+A21r_R,A14m_L,1,0,False,False,416
+A21r_R,A14m_R,1,0,False,False,417
+A21r_R,A20cl_R,1,0,False,False,418
+A21r_R,A20cv_R,1,0,False,False,419
+A21r_R,A20il_R,1,0,False,False,420
+A21r_R,A21c_R,1,0,False,False,421
+A21r_R,A23c_L,1,0,False,False,422
+A23c_L,A21r_R,1,0,False,False,422
+A21r_R,A23c_R,1,0,False,False,423
+A23c_R,A21r_R,1,0,False,False,423
+A21r_R,A23d_L,1,0,False,False,424
+A21r_R,A23d_R,1,0,False,False,425
+A21r_R,A23v_L,1,0,False,False,426
+A21r_R,A23v_R,1,0,False,False,427
+A21r_R,A24rv_L,1,0,False,False,428
+A21r_R,A32p_L,1,0,False,False,429
+A32p_L,A21r_R,1,0,False,False,429
+A21r_R,A32p_R,1,0,False,False,430
+A21r_R,A32sg_R,1,0,False,False,431
+A21r_R,A39c_L,1,0,False,False,432
+A21r_R,A39rd_L,1,0,False,False,433
+A21r_R,A39rd_R,1,0,False,False,434
+A21r_R,A39rv_R,1,0,False,False,435
+A21r_R,A40c_L,1,0,False,False,436
+A21r_R,A40rv_L,1,0,False,False,437
+A21r_R,A46_R,1,0,False,False,438
+A21r_R,A4ll_L,1,0,False,False,439
+A21r_R,A4ll_R,1,0,False,False,440
+A21r_R,A5m_L,1,0,False,False,441
+A21r_R,A5m_R,1,0,False,False,442
+A21r_R,A7m_L,1,0,False,False,443
+A21r_R,A8dl_L,1,0,False,False,444
+A8dl_L,A21r_R,1,0,False,False,444
+A21r_R,A8vl_R,1,0,False,False,445
+A21r_R,A9/46d_L,1,0,False,False,446
+A21r_R,A9/46d_R,1,0,False,False,447
+A21r_R,A9l_R,1,0,False,False,448
+A21r_R,A9m_L,1,0,False,False,449
+A9m_L,A21r_R,1,0,False,False,449
+A21r_R,A9m_R,1,0,False,False,450
+A9m_R,A21r_R,1,0,False,False,450
+A21r_R,aSTS_R,1,0,False,False,451
+A21r_R,cpSTS_L,1,0,False,False,452
+A21r_R,dmPOS_L,1,0,False,False,453
+dmPOS_L,A21r_R,1,0,False,False,453
+A21r_R,dmPOS_R,1,0,False,False,454
+A21r_R,IFJ_R,1,0,False,False,455
+A21r_R,Left I-IV,1,0,False,False,456
+A21r_R,rCunG_R,1,0,False,False,457
+A21r_R,rpSTS_L,1,0,False,False,458
+rpSTS_L,A21r_R,1,0,False,False,458
+A21r_R,V5/MT+_L,1,0,False,False,459
+A21r_R,vmPOS_L,1,0,False,False,460
+vmPOS_L,A21r_R,1,0,False,False,460
+A21r_R,vmPOS_R,1,0,False,False,461
+A22r_L,A1/2/3tonIa_L,1,0,False,False,462
+A22r_L,A40rv_L,1,0,False,False,463
+A23c_L,mAmyg_L,1,0,False,False,464
+A23c_L,vmPu_R,1,0,False,False,465
+vmPu_R,A23c_L,1,0,False,False,465
+A23c_R,A28/34_R,1,0,False,False,466
+A23c_R,A32sg_R,1,0,False,False,467
+A23c_R,A38m_R,1,0,False,False,468
+A23c_R,NAC_R,1,0,False,False,469
+A23c_R,rHipp_R,1,0,False,False,470
+A23v_L,A21c_R,1,0,False,False,471
+A23v_L,aSTS_L,1,0,False,False,472
+A23v_R,A10m_R,1,0,False,False,473
+A23v_R,A13_L,1,0,False,False,474
+A23v_R,A13_R,1,0,False,False,475
+A23v_R,A23v_R,1,0,False,True,476
+A23v_R,A31_L,1,0,False,False,477
+A23v_R,A32sg_L,1,0,False,False,478
+A32sg_L,A23v_R,1,0,False,False,478
+A24rv_R,A1/2/3tru_R,1,0,False,False,479
+A24rv_R,A23c_L,1,0,False,False,480
+A24rv_R,A23c_R,1,0,False,False,481
+A24rv_R,A23d_R,1,0,False,False,482
+A24rv_R,A38m_R,1,0,False,False,483
+A24rv_R,G_R,1,0,False,False,484
+A24rv_R,Left IX,1,0,False,False,485
+A24rv_R,Vermis IX,1,0,False,False,486
+A31_L,A10m_L,1,0,False,False,487
+A31_L,A11m_L,1,0,False,False,488
+A31_L,A11m_R,1,0,False,False,489
+A31_L,A22r_L,1,0,False,False,490
+A31_L,A23d_L,1,0,False,False,491
+A31_L,A38l_L,1,0,False,False,492
+A31_L,A38l_R,1,0,False,False,493
+A31_L,A38m_L,1,0,False,False,494
+A31_L,A38m_R,1,0,False,False,495
+A31_L,aSTS_L,1,0,False,False,496
+aSTS_L,A31_L,1,0,False,False,496
+A31_L,vmPOS_R,1,0,False,False,497
+A32p_L,A23c_L,1,0,False,False,498
+A32p_L,A23c_R,1,0,False,False,499
+A32p_L,A23d_R,1,0,False,False,500
+A32p_L,A35/36c_R,1,0,False,False,501
+A32p_L,A38m_R,1,0,False,False,502
+A38m_R,A32p_L,1,0,False,False,502
+A32p_L,A39rv_R,1,0,False,False,503
+A32p_L,Left IX,1,0,False,False,504
+A32p_L,Left VI,1,0,False,False,505
+A32p_L,lPFtha_L,1,0,False,False,506
+A32p_L,mPFtha_L,1,0,False,False,507
+A32p_L,Vermis IX,1,0,False,False,508
+A32sg_L,A23c_L,1,0,False,False,509
+A32sg_L,A23c_R,1,0,False,False,510
+A32sg_L,A31_L,1,0,False,False,511
+A32sg_L,A31_R,1,0,False,False,512
+A32sg_L,A38m_R,1,0,False,False,513
+A32sg_L,A39rv_R,1,0,False,False,514
+A32sg_L,dmPOS_L,1,0,False,False,515
+A32sg_L,Left IX,1,0,False,False,516
+A32sg_L,rCunG_R,1,0,False,False,517
+A32sg_L,vmPOS_R,1,0,False,False,518
+A35/36r_R,Left I-IV,1,0,False,False,519
+A35/36r_R,rLinG_L,1,0,False,False,520
+A35/36r_R,TH_L,1,0,False,False,521
+A35/36r_R,vmPOS_R,1,0,False,False,522
+A37dl_R,A39c_R,1,0,False,False,523
+A37dl_R,A4ul_R,1,0,False,False,524
+A37dl_R,A6cdl_R,1,0,False,False,525
+A37dl_R,dmPOS_R,1,0,False,False,526
+A37dl_R,V5/MT+_R,1,0,False,False,527
+A37elv_L,A2_L,1,0,False,False,528
+A37elv_L,A39rd_L,1,0,False,False,529
+A37elv_L,A40c_L,1,0,False,False,530
+A37elv_L,A40c_R,1,0,False,False,531
+A37elv_L,A40rv_L,1,0,False,False,532
+A37elv_L,A40rv_R,1,0,False,False,533
+A37elv_L,A5l_L,1,0,False,False,534
+A5l_L,A37elv_L,1,0,False,False,534
+A37elv_L,A6cdl_L,1,0,False,False,535
+A37elv_L,A6cdl_R,1,0,False,False,536
+A37elv_L,A6cvl_L,1,0,False,False,537
+A37elv_L,A6dl_R,1,0,False,False,538
+A37elv_L,A6vl_R,1,0,False,False,539
+A37elv_L,A7c_L,1,0,False,False,540
+A37elv_L,A7ip_L,1,0,False,False,541
+A37elv_R,A2_L,1,0,False,False,542
+A37elv_R,A31_R,1,0,False,False,543
+A37elv_R,A39c_L,1,0,False,False,544
+A37elv_R,A39c_R,1,0,False,False,545
+A37elv_R,A39rd_R,1,0,False,False,546
+A37elv_R,A40rd_L,1,0,False,False,547
+A37elv_R,A40rd_R,1,0,False,False,548
+A37elv_R,A5l_L,1,0,False,False,549
+A5l_L,A37elv_R,1,0,False,False,549
+A37elv_R,A5m_R,1,0,False,False,550
+A37elv_R,A6cdl_L,1,0,False,False,551
+A37elv_R,A6cdl_R,1,0,False,False,552
+A37elv_R,A6dl_L,1,0,False,False,553
+A37elv_R,A6dl_R,1,0,False,False,554
+A37elv_R,A6vl_L,1,0,False,False,555
+A37elv_R,A6vl_R,1,0,False,False,556
+A37elv_R,A7c_L,1,0,False,False,557
+A37elv_R,A7c_R,1,0,False,False,558
+A7c_R,A37elv_R,1,0,False,False,558
+A37elv_R,A7ip_L,1,0,False,False,559
+A7ip_L,A37elv_R,1,0,False,False,559
+A37elv_R,A7m_R,1,0,False,False,560
+A37elv_R,A7r_R,1,0,False,False,561
+A37elv_R,IFJ_R,1,0,False,False,562
+A37elv_R,lsOccG_L,1,0,False,False,563
+A37elv_R,lsOccG_R,1,0,False,False,564
+lsOccG_R,A37elv_R,1,0,False,False,564
+A37elv_R,mOccG_R,1,0,False,False,565
+A37elv_R,msOccG_L,1,0,False,False,566
+A37elv_R,msOccG_R,1,0,False,False,567
+A37elv_R,Right VIIb,1,0,False,False,568
+A37elv_R,V5/MT+_R,1,0,False,False,569
+A37elv_R,vmPOS_L,1,0,False,False,570
+A37lv_L,A24cd_R,1,0,False,False,571
+A37lv_L,A24rv_R,1,0,False,False,572
+A37lv_L,A37elv_R,1,0,False,False,573
+A37lv_L,A37vl_R,1,0,False,False,574
+A37lv_L,A39rd_L,1,0,False,False,575
+A37lv_L,A39rd_R,1,0,False,False,576
+A37lv_L,A40c_L,1,0,False,False,577
+A37lv_L,A40rv_R,1,0,False,False,578
+A37lv_L,A4hf_R,1,0,False,False,579
+A37lv_L,A4tl_L,1,0,False,False,580
+A37lv_L,A4ul_R,1,0,False,False,581
+A37lv_L,A5l_L,1,0,False,False,582
+A5l_L,A37lv_L,1,0,False,False,582
+A37lv_L,A6cdl_L,1,0,False,False,583
+A37lv_L,A6dl_L,1,0,False,False,584
+A37lv_L,A6dl_R,1,0,False,False,585
+A37lv_L,A6vl_L,1,0,False,False,586
+A37lv_L,A6vl_R,1,0,False,False,587
+A37lv_L,A8m_R,1,0,False,False,588
+A37lv_L,cCunG_R,1,0,False,False,589
+A37lv_L,dmPOS_L,1,0,False,False,590
+A37lv_L,mOccG_L,1,0,False,False,591
+A37lv_L,mOccG_R,1,0,False,False,592
+A37lv_L,msOccG_R,1,0,False,False,593
+A37lv_L,rCunG_R,1,0,False,False,594
+A37lv_L,V5/MT+_L,1,0,False,False,595
+A37lv_R,A2_R,1,0,False,False,596
+A37lv_R,A37elv_L,1,0,False,False,597
+A37lv_R,A37lv_L,1,0,False,False,598
+A37lv_R,A37mv_L,1,0,False,False,599
+A37lv_R,A37mv_R,1,0,False,False,600
+A37lv_R,A39c_L,1,0,False,False,601
+A37lv_R,A39rd_L,1,0,False,False,602
+A37lv_R,A39rd_R,1,0,False,False,603
+A37lv_R,A40rd_R,1,0,False,False,604
+A37lv_R,A4ul_R,1,0,False,False,605
+A37lv_R,A5l_L,1,0,False,False,606
+A5l_L,A37lv_R,1,0,False,False,606
+A37lv_R,A5m_R,1,0,False,False,607
+A37lv_R,A6cdl_L,1,0,False,False,608
+A37lv_R,A6dl_R,1,0,False,False,609
+A37lv_R,A6vl_R,1,0,False,False,610
+A37lv_R,A7c_R,1,0,False,False,611
+A7c_R,A37lv_R,1,0,False,False,611
+A37lv_R,A7ip_L,1,0,False,False,612
+A7ip_L,A37lv_R,1,0,False,False,612
+A37lv_R,A7ip_R,1,0,False,False,613
+A37lv_R,A7m_R,1,0,False,False,614
+A37lv_R,A7r_L,1,0,False,False,615
+A37lv_R,lsOccG_R,1,0,False,False,616
+lsOccG_R,A37lv_R,1,0,False,False,616
+A37lv_R,mOccG_L,1,0,False,False,617
+A37lv_R,mOccG_R,1,0,False,False,618
+A37lv_R,msOccG_R,1,0,False,False,619
+A37lv_R,rCunG_L,1,0,False,False,620
+A37lv_R,Right VIIb,1,0,False,False,621
+A37lv_R,V5/MT+_R,1,0,False,False,622
+A37lv_R,Vermis VIIIa,1,0,False,False,623
+A37lv_R,vmPOS_L,1,0,False,False,624
+A38m_L,A23v_R,1,0,False,False,625
+A38m_L,A8dl_R,1,0,False,False,626
+A38m_L,A9/46d_R,1,0,False,False,627
+A38m_L,A9m_L,1,0,False,False,628
+A38m_L,dmPOS_R,1,0,False,False,629
+A38m_R,A10m_L,1,0,False,False,630
+A38m_R,A39rd_R,1,0,False,False,631
+A38m_R,A39rv_R,1,0,False,False,632
+A38m_R,A41/42_L,1,0,False,False,633
+A38m_R,A9m_R,1,0,False,False,634
+A9m_R,A38m_R,1,0,False,False,634
+A38m_R,dmPOS_L,1,0,False,False,635
+A38m_R,vmPOS_L,1,0,False,False,636
+A39rv_L,A21r_L,1,0,False,False,637
+A40rd_L,A37elv_L,1,0,False,False,638
+A40rd_L,A37lv_L,1,0,False,False,639
+A40rd_L,A37vl_L,1,0,False,False,640
+A40rd_L,A40rd_L,1,0,False,True,641
+A4hf_L,A1/2/3ulhf_R,1,0,False,False,642
+A4hf_L,A4hf_R,1,0,False,False,643
+A4ll_L,A1/2/3ll_L,1,0,False,False,644
+A4ll_L,A1/2/3tru_L,1,0,False,False,645
+A5l_L,A20cl_L,1,0,False,False,646
+A5l_L,A37mv_L,1,0,False,False,647
+A5l_L,A37vl_L,1,0,False,False,648
+A5l_L,A37vl_R,1,0,False,False,649
+A5l_L,A6cdl_R,1,0,False,False,650
+A5l_L,A6dl_L,1,0,False,False,651
+A5l_L,lsOccG_R,1,0,False,False,652
+A5l_L,msOccG_R,1,0,False,False,653
+A5l_L,Right Crus I,1,0,False,False,654
+A5l_L,V5/MT+_R,1,0,False,False,655
+A6vl_L,A20cl_L,1,0,False,False,656
+A6vl_L,A37dl_L,1,0,False,False,657
+A6vl_L,A37vl_L,1,0,False,False,658
+A6vl_L,A45c_L,1,0,False,False,659
+A6vl_L,aSTS_L,1,0,False,False,660
+A6vl_R,A10l_R,1,0,False,False,661
+A6vl_R,A46_R,1,0,False,False,662
+A7c_R,A7c_R,1,0,False,True,663
+A7ip_L,A37lv_L,1,0,False,False,664
+A7ip_L,A37mv_L,1,0,False,False,665
+A7ip_L,A37vl_R,1,0,False,False,666
+A7ip_L,Left VI,1,0,False,False,667
+A7ip_L,Right Crus I,1,0,False,False,668
+A7ip_L,V5/MT+_R,1,0,False,False,669
+A8dl_L,A22c_L,1,0,False,False,670
+A8vl_L,A37dl_L,1,0,False,False,671
+A9/46v_R,A6cdl_R,1,0,False,False,672
+A9l_R,A38m_L,1,0,False,False,673
+A9m_L,A11m_R,1,0,False,False,674
+A9m_L,A20r_R,1,0,False,False,675
+A9m_L,aSTS_L,1,0,False,False,676
+aSTS_L,A9m_L,1,0,False,False,676
+A9m_R,A12/47o_L,1,0,False,False,677
+A9m_R,A20r_R,1,0,False,False,678
+A9m_R,A28/34_R,1,0,False,False,679
+A9m_R,A37lv_R,1,0,False,False,680
+A9m_R,A38l_L,1,0,False,False,681
+A9m_R,A38m_L,1,0,False,False,682
+A9m_R,A6vl_R,1,0,False,False,683
+A9m_R,Left I-IV,1,0,False,False,684
+A9m_R,Left V,1,0,False,False,685
+A9m_R,Right V,1,0,False,False,686
+A9m_R,Right VI,1,0,False,False,687
+aSTS_L,A11l_L,1,0,False,False,688
+aSTS_L,A11m_L,1,0,False,False,689
+aSTS_L,A12/47o_L,1,0,False,False,690
+aSTS_L,A21c_R,1,0,False,False,691
+aSTS_L,A21r_L,1,0,False,False,692
+aSTS_L,A22c_R,1,0,False,False,693
+aSTS_L,A31_R,1,0,False,False,694
+aSTS_L,A38l_L,1,0,False,False,695
+aSTS_L,A38m_L,1,0,False,False,696
+aSTS_L,A39rd_L,1,0,False,False,697
+aSTS_L,A40c_L,1,0,False,False,698
+aSTS_L,A40rv_L,1,0,False,False,699
+aSTS_L,A8dl_R,1,0,False,False,700
+aSTS_L,A8vl_R,1,0,False,False,701
+aSTS_L,A9l_L,1,0,False,False,702
+aSTS_L,aSTS_R,1,0,False,False,703
+aSTS_R,aSTS_L,1,0,False,False,703
+aSTS_L,dmPOS_L,1,0,False,False,704
+dmPOS_L,aSTS_L,1,0,False,False,704
+aSTS_L,dmPOS_R,1,0,False,False,705
+aSTS_L,rCunG_R,1,0,False,False,706
+aSTS_L,vIa_L,1,0,False,False,707
+aSTS_L,vmPOS_L,1,0,False,False,708
+aSTS_L,vmPOS_R,1,0,False,False,709
+aSTS_R,A12/47l_L,1,0,False,False,710
+aSTS_R,A12/47o_L,1,0,False,False,711
+aSTS_R,A12/47o_R,1,0,False,False,712
+aSTS_R,A22c_L,1,0,False,False,713
+aSTS_R,A22r_L,1,0,False,False,714
+aSTS_R,A31_L,1,0,False,False,715
+aSTS_R,A37dl_R,1,0,False,False,716
+aSTS_R,A39rv_R,1,0,False,False,717
+aSTS_R,A40c_L,1,0,False,False,718
+aSTS_R,A40rv_L,1,0,False,False,719
+aSTS_R,A4ll_R,1,0,False,False,720
+aSTS_R,A4ul_L,1,0,False,False,721
+aSTS_R,A8dl_L,1,0,False,False,722
+aSTS_R,A8vl_L,1,0,False,False,723
+aSTS_R,cpSTS_L,1,0,False,False,724
+cpSTS_L,aSTS_R,1,0,False,False,724
+aSTS_R,dmPOS_L,1,0,False,False,725
+aSTS_R,dmPOS_R,1,0,False,False,726
+aSTS_R,G_L,1,0,False,False,727
+aSTS_R,Left V,1,0,False,False,728
+aSTS_R,rCunG_L,1,0,False,False,729
+aSTS_R,rpSTS_L,1,0,False,False,730
+aSTS_R,vmPOS_L,1,0,False,False,731
+aSTS_R,vmPOS_R,1,0,False,False,732
+cpSTS_L,A22c_R,1,0,False,False,733
+cpSTS_L,A22r_L,1,0,False,False,734
+cpSTS_L,aSTS_L,1,0,False,False,735
+cpSTS_R,A1/2/3tru_L,1,0,False,False,736
+cpSTS_R,A1/2/3ulhf_R,1,0,False,False,737
+cpSTS_R,A44op_R,1,0,False,False,738
+cpSTS_R,A4hf_R,1,0,False,False,739
+cpSTS_R,A4tl_R,1,0,False,False,740
+cpSTS_R,A7pc_L,1,0,False,False,741
+cpSTS_R,dId_R,1,0,False,False,742
+dmPOS_R,A20rv_R,1,0,False,False,743
+GP_R,Left V,1,0,False,False,744
+GP_R,Left VI,1,0,False,False,745
+GP_R,Left VIIIb,1,0,False,False,746
+IFJ_L,A21c_L,1,0,False,False,747
+IFJ_L,A37dl_L,1,0,False,False,748
+IFJ_L,A6vl_L,1,0,False,False,749
+IFJ_L,aSTS_L,1,0,False,False,750
+IFJ_L,IFJ_L,1,0,False,True,751
+IFJ_R,A10l_L,1,0,False,False,752
+IFJ_R,A10l_R,1,0,False,False,753
+IFJ_R,A12/47o_R,1,0,False,False,754
+IFJ_R,A39rv_R,1,0,False,False,755
+IFJ_R,A46_R,1,0,False,False,756
+lsOccG_L,A37lv_R,1,0,False,False,757
+lsOccG_R,A20cv_R,1,0,False,False,758
+lsOccG_R,A37elv_L,1,0,False,False,759
+lsOccG_R,A37vl_R,1,0,False,False,760
+lsOccG_R,A7c_R,1,0,False,False,761
+lsOccG_R,Right Crus I,1,0,False,False,762
+Otha_R,A12/47o_R,1,0,False,False,763
+Otha_R,A13_L,1,0,False,False,764
+Otha_R,Left IX,1,0,False,False,765
+Otha_R,mPMtha_R,1,0,False,False,766
+Otha_R,NAC_L,1,0,False,False,767
+Otha_R,NAC_R,1,0,False,False,768
+Otha_R,Right VIIb,1,0,False,False,769
+Otha_R,Right VIIIb,1,0,False,False,770
+Otha_R,rTtha_R,1,0,False,False,771
+Otha_R,vCa_R,1,0,False,False,772
+rpSTS_L,A10m_L,1,0,False,False,773
+rpSTS_L,A10m_R,1,0,False,False,774
+rpSTS_L,A11l_R,1,0,False,False,775
+rpSTS_L,A11m_L,1,0,False,False,776
+rpSTS_L,A11m_R,1,0,False,False,777
+rpSTS_L,A12/47l_R,1,0,False,False,778
+rpSTS_L,A13_R,1,0,False,False,779
+rpSTS_L,A22c_R,1,0,False,False,780
+rpSTS_L,A22r_L,1,0,False,False,781
+rpSTS_L,A22r_R,1,0,False,False,782
+rpSTS_L,A32p_L,1,0,False,False,783
+rpSTS_L,A32sg_R,1,0,False,False,784
+rpSTS_L,A38l_L,1,0,False,False,785
+rpSTS_L,A44v_L,1,0,False,False,786
+rpSTS_L,A45c_L,1,0,False,False,787
+rpSTS_L,A45r_L,1,0,False,False,788
+rpSTS_L,A9m_R,1,0,False,False,789
+rpSTS_L,aSTS_L,1,0,False,False,790
+rpSTS_L,IFS_L,1,0,False,False,791
+rpSTS_L,rpSTS_R,1,0,False,False,792
+rpSTS_L,vIa_L,1,0,False,False,793
+rpSTS_L,vIa_R,1,0,False,False,794
+rpSTS_R,A1/2/3ulhf_R,1,0,False,False,795
+rpSTS_R,A2_R,1,0,False,False,796
+rpSTS_R,cpSTS_L,1,0,False,False,797
+vmPOS_L,A12/47o_L,1,0,False,False,798
+vmPOS_L,A21c_R,1,0,False,False,799
+vmPOS_L,A37dl_R,1,0,False,False,800
+vmPOS_L,A38l_L,1,0,False,False,801
+vmPOS_L,rLinG_R,1,0,False,False,802
+vmPOS_L,TH_R,1,0,False,False,803
+vmPu_R,A1/2/3ll_R,1,0,False,False,804
+vmPu_R,A23c_R,1,0,False,False,805
+vmPu_R,A23d_L,1,0,False,False,806
+vmPu_R,A24cd_L,1,0,False,False,807
+vmPu_R,A32p_R,1,0,False,False,808
+vmPu_R,A40c_R,1,0,False,False,809
+vmPu_R,A44d_R,1,0,False,False,810
+vmPu_R,A9m_R,1,0,False,False,811
+vmPu_R,dlPu_L,1,0,False,False,812
+vmPu_R,Left IX,1,0,False,False,813
+vmPu_R,Left V,1,0,False,False,814
+vmPu_R,lPFtha_R,1,0,False,False,815
+vmPu_R,mPMtha_R,1,0,False,False,816
+vmPu_R,NAC_L,1,0,False,False,817
+vmPu_R,Stha_R,1,0,False,False,818
+vmPu_R,Vermis VI,1,0,False,False,819
+A1/2/3ll_L,A31_R,0,1,False,False,820
+A1/2/3tonIa_L,cTtha_L,0,1,False,False,821
+A1/2/3tonIa_L,rTtha_R,0,1,False,False,822
+A10m_L,iOccG_R,0,1,False,False,823
+A10m_R,A10l_R,0,1,False,False,824
+A10m_R,A12/47l_L,0,1,False,False,825
+A10m_R,A39rd_L,0,1,False,False,826
+A10m_R,A44op_L,0,1,False,False,827
+A10m_R,A5l_L,0,1,False,False,828
+A10m_R,A9/46v_L,0,1,False,False,829
+A10m_R,A9/46v_R,0,1,False,False,830
+A10m_R,dCa_L,0,1,False,False,831
+A10m_R,dCa_R,0,1,False,False,832
+A10m_R,IFS_L,0,1,False,False,833
+A10m_R,IFS_R,0,1,False,False,834
+A10m_R,iOccG_R,0,2,False,False,835
+A10m_R,Left VI,0,1,False,False,836
+A10m_R,Left VIIb,0,3,False,False,837
+A10m_R,Left VIIIa,0,1,False,False,838
+A10m_R,V5/MT+_R,0,3,False,False,839
+A10m_R,Vermis VI,0,1,False,False,840
+A11m_L,A20cl_R,0,1,False,False,841
+A11m_L,A20cv_R,0,1,False,False,842
+A11m_L,A37elv_R,0,1,False,False,843
+A11m_L,Left Crus II,0,1,False,False,844
+A11m_L,Left VIIIb,0,1,False,False,845
+A11m_R,A10l_R,0,1,False,False,846
+A11m_R,A11l_R,0,2,False,False,847
+A11m_R,A12/47l_R,0,1,False,False,848
+A11m_R,A20cl_R,0,1,False,False,849
+A11m_R,A20cv_R,0,2,False,False,850
+A11m_R,A37elv_R,0,1,False,False,851
+A11m_R,A37lv_R,0,2,False,False,852
+A11m_R,A9/46v_L,0,1,False,False,853
+A11m_R,A9/46v_R,0,1,False,False,854
+A11m_R,dIa_R,0,1,False,False,855
+A11m_R,dId_R,0,1,False,False,856
+A11m_R,dlPu_R,0,3,False,False,857
+A11m_R,Left VIIIa,0,2,False,False,858
+A11m_R,Left VIIIb,0,1,False,False,859
+A11m_R,Left X,0,1,False,False,860
+A11m_R,Right Crus I,0,3,False,False,861
+A11m_R,Right VIIIa,0,1,False,False,862
+A11m_R,vIa_R,0,1,False,False,863
+A11m_R,vmPu_R,0,1,False,False,864
+A12/47o_L,A11l_L,0,1,False,False,865
+A12/47o_L,A20rv_R,0,1,False,False,866
+A12/47o_L,A44op_R,0,1,False,False,867
+A12/47o_L,A9/46v_R,0,1,False,False,868
+A12/47o_L,dIa_R,0,1,False,False,869
+A14m_R,lsOccG_L,0,1,False,False,870
+A14m_R,msOccG_L,0,1,False,False,871
+A14m_R,msOccG_R,0,1,False,False,872
+A14m_R,Right X,0,2,False,False,873
+A20cv_L,Left Crus I,0,1,False,False,874
+A20cv_L,Left VI,0,1,False,False,875
+A20cv_R,A20cv_R,0,1,False,True,876
+A20cv_R,Right Crus I,0,1,False,False,877
+A20il_L,Left Crus I,0,1,False,False,878
+A20il_L,Left VI,0,1,False,False,879
+A20iv_L,Left Crus I,0,1,False,False,880
+A20iv_L,Left VI,0,1,False,False,881
+A21c_L,A1/2/3tonIa_R,0,1,False,False,882
+A21c_L,A20cv_R,0,1,False,False,883
+A21c_L,A20iv_R,0,1,False,False,884
+A21c_L,A20rv_R,0,1,False,False,885
+A21c_L,A22c_R,0,1,False,False,886
+A21c_L,A37lv_R,0,1,False,False,887
+A21c_L,A4tl_R,0,1,False,False,888
+A21c_L,A6cdl_R,0,1,False,False,889
+A21c_L,Left Crus I,0,2,False,False,890
+A21c_L,Left Crus II,0,1,False,False,891
+A21c_L,Left VI,0,1,False,False,892
+A21c_L,Left VIIb,0,3,False,False,893
+A21c_L,Left VIIIa,0,4,False,False,894
+A21c_L,Left X,0,1,False,False,895
+A21c_L,rHipp_L,0,1,False,False,896
+A21c_L,Right VIIb,0,1,False,False,897
+A21c_L,Right VIIIa,0,4,False,False,898
+A21c_L,Right VIIIb,0,2,False,False,899
+A21c_L,Right X,0,1,False,False,900
+A21c_L,Stha_L,0,1,False,False,901
+A21c_L,TE1.0/TE1.2_R,0,1,False,False,902
+A21r_L,A11l_R,0,2,False,False,903
+A21r_L,A13_L,0,2,False,False,904
+A21r_L,A20rv_L,0,1,False,False,905
+A21r_L,A20rv_R,0,1,False,False,906
+A21r_L,A32sg_L,0,1,False,False,907
+A21r_L,A44op_R,0,1,False,False,908
+A21r_L,A6m_R,0,1,False,False,909
+A21r_L,A6vl_R,0,1,False,False,910
+A21r_L,A8m_R,0,1,False,False,911
+A21r_L,dCa_L,0,1,False,False,912
+A21r_L,dCa_R,0,2,False,False,913
+A21r_L,GP_L,0,2,False,False,914
+A21r_L,GP_R,0,1,False,False,915
+A21r_L,lAmyg_L,0,1,False,False,916
+A21r_L,Left VIIIa,0,1,False,False,917
+A21r_L,Left VIIIb,0,1,False,False,918
+A21r_L,lPFtha_L,0,1,False,False,919
+A21r_L,mAmyg_L,0,2,False,False,920
+A21r_L,mPMtha_R,0,2,False,False,921
+A21r_L,NAC_L,0,2,False,False,922
+A21r_L,NAC_R,0,1,False,False,923
+A21r_L,rHipp_L,0,1,False,False,924
+A21r_L,vCa_R,0,1,False,False,925
+A21r_L,vmPu_L,0,1,False,False,926
+A21r_L,vmPu_R,0,1,False,False,927
+A21r_R,A11l_R,0,1,False,False,928
+A21r_R,A13_R,0,1,False,False,929
+A21r_R,A8m_R,0,1,False,False,930
+A21r_R,dCa_R,0,1,False,False,931
+A21r_R,GP_R,0,1,False,False,932
+A21r_R,Left VIIb,0,2,False,False,933
+A21r_R,Left VIIIa,0,1,False,False,934
+A21r_R,lPFtha_L,0,1,False,False,935
+A21r_R,NAC_L,0,1,False,False,936
+A21r_R,Right VIIIb,0,1,False,False,937
+A21r_R,Right X,0,1,False,False,938
+A21r_R,vmPu_L,0,1,False,False,939
+A21r_R,vmPu_R,0,1,False,False,940
+A23c_L,A6vl_L,0,1,False,False,941
+A23c_R,Otha_R,0,1,False,False,942
+A23d_L,A40c_R,0,1,False,False,943
+A23d_L,A4t_R,0,1,False,False,944
+A23v_L,A39rv_R,0,1,False,False,945
+A23v_L,A40c_R,0,3,False,False,946
+A23v_L,A40rd_R,0,1,False,False,947
+A23v_L,Left VI,0,1,False,False,948
+A23v_L,Left VIIIa,0,1,False,False,949
+A23v_L,Right Crus I,0,1,False,False,950
+A23v_L,Right Crus II,0,1,False,False,951
+A23v_L,Right VIIb,0,1,False,False,952
+A23v_L,Right VIIIa,0,1,False,False,953
+A23v_R,A40c_R,0,3,False,False,954
+A23v_R,A40rd_R,0,1,False,False,955
+A23v_R,A40rv_R,0,1,False,False,956
+A23v_R,A44op_R,0,1,False,False,957
+A23v_R,A7ip_R,0,1,False,False,958
+A23v_R,Right Crus II,0,1,False,False,959
+A23v_R,Right VIIb,0,1,False,False,960
+A23v_R,Right VIIIa,0,1,False,False,961
+A24rv_L,dCa_L,0,1,False,False,962
+A24rv_R,dCa_L,0,1,False,False,963
+A24rv_R,vCa_L,0,2,False,False,964
+A31_L,A1/2/3ll_R,0,1,False,False,965
+A31_L,A39rd_L,0,1,False,False,966
+A31_L,A39rd_R,0,1,False,False,967
+A31_L,A40c_L,0,1,False,False,968
+A31_L,A40c_R,0,1,False,False,969
+A40c_R,A31_L,0,1,False,False,969
+A31_L,A40rd_L,0,2,False,False,970
+A31_L,A40rd_R,0,1,False,False,971
+A31_L,A40rv_R,0,1,False,False,972
+A31_L,A5l_L,0,1,False,False,973
+A31_L,A7c_L,0,2,False,False,974
+A31_L,A7ip_R,0,1,False,False,975
+A31_L,cCunG_R,0,1,False,False,976
+A31_L,dmPOS_L,0,1,False,False,977
+A31_L,OPC_R,0,1,False,False,978
+A32p_L,dCa_L,0,1,False,False,979
+A32p_L,mOccG_L,0,1,False,False,980
+A32p_L,mOccG_R,0,1,False,False,981
+A32p_L,OPC_L,0,1,False,False,982
+A32p_L,OPC_R,0,1,False,False,983
+A32p_R,dCa_L,0,1,False,False,984
+A32sg_L,A39c_L,0,1,False,False,985
+A32sg_L,lsOccG_L,0,1,False,False,986
+A32sg_L,msOccG_L,0,1,False,False,987
+A32sg_R,dCa_L,0,1,False,False,988
+A35/36r_R,dCa_L,0,2,False,False,989
+A37dl_R,Otha_R,0,1,False,False,990
+A37dl_R,PPtha_R,0,1,False,False,991
+A37elv_R,dCa_R,0,1,False,False,992
+A37elv_R,Right Crus I,0,1,False,False,993
+A37elv_R,Right Crus II,0,1,False,False,994
+A37lv_L,A20iv_L,0,1,False,False,995
+A37lv_L,A20rv_L,0,2,False,False,996
+A37lv_L,A37lv_L,0,1,False,True,997
+A37lv_L,cHipp_L,0,2,False,False,998
+A37lv_L,dCa_R,0,1,False,False,999
+A37lv_L,Left Crus II,0,3,False,False,1000
+A37lv_L,Right Crus I,0,2,False,False,1001
+A37lv_L,Right I-IV,0,1,False,False,1002
+A37lv_L,vCa_R,0,1,False,False,1003
+A37lv_L,Vermis X,0,1,False,False,1004
+A37lv_R,A10m_R,0,1,False,False,1005
+A37lv_R,A9l_R,0,1,False,False,1006
+A37lv_R,dCa_L,0,2,False,False,1007
+A37lv_R,dCa_R,0,1,False,False,1008
+A37lv_R,Left Crus I,0,1,False,False,1009
+A37lv_R,Left Crus II,0,2,False,False,1010
+A37lv_R,Left X,0,1,False,False,1011
+A37lv_R,Right Crus II,0,3,False,False,1012
+A37lv_R,rTtha_R,0,1,False,False,1013
+A37lv_R,vCa_R,0,1,False,False,1014
+A38m_L,Right VIIIb,0,2,False,False,1015
+A38m_L,Right X,0,1,False,False,1016
+A40c_R,A23v_L,0,2,False,False,1017
+A40c_R,dmPOS_L,0,1,False,False,1018
+dmPOS_L,A40c_R,0,1,False,False,1018
+A41/42_R,cHipp_R,0,1,False,False,1019
+A41/42_R,Otha_R,0,1,False,False,1020
+Otha_R,A41/42_R,0,1,False,False,1020
+A41/42_R,rTtha_R,0,2,False,False,1021
+A5l_L,A23v_R,0,1,False,False,1022
+A5l_L,cHipp_R,0,1,False,False,1023
+A7r_R,A20il_L,0,1,False,False,1024
+A8dl_L,A20rv_R,0,1,False,False,1025
+A8dl_L,A40c_R,0,1,False,False,1026
+A8dl_L,A40rd_R,0,1,False,False,1027
+A8dl_L,A6cvl_R,0,1,False,False,1028
+A8dl_L,Left VIIb,0,1,False,False,1029
+A8dl_L,Left VIIIa,0,1,False,False,1030
+A8dl_R,A40c_L,0,1,False,False,1031
+A8dl_R,A40rd_L,0,1,False,False,1032
+A8dl_R,A40rv_L,0,1,False,False,1033
+A8dl_R,A40rv_R,0,1,False,False,1034
+A8dl_R,A6cvl_R,0,1,False,False,1035
+A9m_R,A5l_L,0,1,False,False,1036
+aSTS_L,cHipp_L,0,3,False,False,1037
+aSTS_L,Left Crus II,0,1,False,False,1038
+aSTS_L,Left VIIb,0,3,False,False,1039
+aSTS_L,Left VIIIa,0,1,False,False,1040
+aSTS_L,Left VIIIb,0,1,False,False,1041
+aSTS_L,Right VIIIa,0,1,False,False,1042
+aSTS_L,Right VIIIb,0,1,False,False,1043
+aSTS_L,Right X,0,1,False,False,1044
+aSTS_R,A7ip_R,0,1,False,False,1045
+aSTS_R,GP_R,0,1,False,False,1046
+aSTS_R,Left VI,0,1,False,False,1047
+aSTS_R,Left VIIIa,0,1,False,False,1048
+aSTS_R,Left VIIIb,0,1,False,False,1049
+aSTS_R,Left X,0,1,False,False,1050
+aSTS_R,rTtha_R,0,1,False,False,1051
+dIg_R,rTtha_R,0,1,False,False,1052
+dmPOS_L,A1/2/3ll_L,0,1,False,False,1053
+dmPOS_L,A1/2/3ll_R,0,1,False,False,1054
+dmPOS_L,A40c_L,0,1,False,False,1055
+dmPOS_L,A40rd_L,0,1,False,False,1056
+dmPOS_L,A5m_R,0,1,False,False,1057
+IFJ_R,A8dl_R,0,1,False,False,1058
+Left Crus I,A4t_R,0,1,False,False,1059
+Left Crus I,dmPOS_L,0,1,False,False,1060
+Left Crus I,rCunG_L,0,1,False,False,1061
+Left Crus I,rCunG_R,0,1,False,False,1062
+Left Crus I,rLinG_L,0,1,False,False,1063
+Left Crus I,vmPOS_L,0,2,False,False,1064
+Left Crus I,vmPOS_R,0,3,False,False,1065
+Otha_R,A1/2/3ll_L,0,3,False,False,1066
+Otha_R,A1/2/3ll_R,0,1,False,False,1067
+Otha_R,A1/2/3tonIa_L,0,1,False,False,1068
+Otha_R,A1/2/3tonIa_R,0,1,False,False,1069
+Otha_R,A1/2/3tru_L,0,1,False,False,1070
+Otha_R,A1/2/3tru_R,0,1,False,False,1071
+Otha_R,A1/2/3ulhf_L,0,1,False,False,1072
+Otha_R,A1/2/3ulhf_R,0,1,False,False,1073
+Otha_R,A2_L,0,1,False,False,1074
+Otha_R,A2_R,0,1,False,False,1075
+Otha_R,A22c_L,0,4,False,False,1076
+Otha_R,A22c_R,0,2,False,False,1077
+Otha_R,A22r_R,0,1,False,False,1078
+Otha_R,A23c_L,0,1,False,False,1079
+Otha_R,A37dl_L,0,1,False,False,1080
+Otha_R,A37dl_R,0,3,False,False,1081
+Otha_R,A37vl_L,0,1,False,False,1082
+Otha_R,A39rv_L,0,1,False,False,1083
+Otha_R,A39rv_R,0,1,False,False,1084
+Otha_R,A40c_L,0,1,False,False,1085
+Otha_R,A40rd_L,0,1,False,False,1086
+Otha_R,A40rd_R,0,2,False,False,1087
+Otha_R,A40rv_L,0,2,False,False,1088
+Otha_R,A40rv_R,0,2,False,False,1089
+Otha_R,A41/42_L,0,4,False,False,1090
+Otha_R,A4ll_L,0,1,False,False,1091
+Otha_R,A4ll_R,0,1,False,False,1092
+Otha_R,A4t_L,0,1,False,False,1093
+Otha_R,A4ul_L,0,1,False,False,1094
+Otha_R,A4ul_R,0,2,False,False,1095
+Otha_R,A5l_R,0,1,False,False,1096
+Otha_R,A7pc_L,0,1,False,False,1097
+Otha_R,A7pc_R,0,1,False,False,1098
+Otha_R,A9m_L,0,1,False,False,1099
+Otha_R,A9m_R,0,1,False,False,1100
+Otha_R,aSTS_R,0,1,False,False,1101
+Otha_R,cpSTS_L,0,1,False,False,1102
+Otha_R,cpSTS_R,0,2,False,False,1103
+Otha_R,dIg_L,0,1,False,False,1104
+Otha_R,dIg_R,0,1,False,False,1105
+Otha_R,G_L,0,2,False,False,1106
+Otha_R,G_R,0,1,False,False,1107
+Otha_R,rpSTS_L,0,2,False,False,1108
+rpSTS_L,Otha_R,0,2,False,False,1108
+Otha_R,rpSTS_R,0,1,False,False,1109
+Otha_R,TE1.0/TE1.2_L,0,3,False,False,1110
+Otha_R,TE1.0/TE1.2_R,0,1,False,False,1111
+Otha_R,V5/MT+_L,0,1,False,False,1112
+Right Crus I,rCunG_L,0,1,False,False,1113
+Right Crus I,rCunG_R,0,2,False,False,1114
+Right Crus I,vmPOS_L,0,1,False,False,1115
+Right Crus I,vmPOS_R,0,1,False,False,1116
+vmPOS_R,Right Crus I,0,1,False,False,1116
+rpSTS_L,cTtha_R,0,1,False,False,1117
+rpSTS_L,Left Crus I,0,2,False,False,1118
+rpSTS_L,Left Crus II,0,3,False,False,1119
+rpSTS_L,Left VI,0,1,False,False,1120
+rpSTS_L,Left VIIb,0,2,False,False,1121
+rpSTS_L,Left VIIIa,0,2,False,False,1122
+rpSTS_L,Left VIIIb,0,1,False,False,1123
+rpSTS_L,Left X,0,1,False,False,1124
+rpSTS_L,lPFtha_R,0,1,False,False,1125
+rpSTS_L,lsOccG_R,0,1,False,False,1126
+rpSTS_L,mPFtha_L,0,1,False,False,1127
+rpSTS_L,mPFtha_R,0,3,False,False,1128
+rpSTS_L,Right VIIIb,0,1,False,False,1129
+rpSTS_L,Right X,0,1,False,False,1130
+rpSTS_L,rTtha_L,0,1,False,False,1131
+rpSTS_L,rTtha_R,0,2,False,False,1132
+rpSTS_R,cTtha_L,0,1,False,False,1133
+rpSTS_R,Otha_L,0,1,False,False,1134
+TL_L,A46_L,0,1,False,False,1135
+TL_L,dCa_R,0,1,False,False,1136
+vmPOS_L,A39c_L,0,1,False,False,1137
+vmPOS_L,Left Crus I,0,1,False,False,1138
+vmPOS_L,Right Crus II,0,1,False,False,1139
+vmPOS_L,Right VIIb,0,1,False,False,1140
+vmPOS_R,A7ip_R,0,1,False,False,1141
+vmPOS_R,Left Crus I,0,1,False,False,1142
+vmPOS_R,Left VI,0,5,False,False,1143
+vmPOS_R,OPC_L,0,1,False,False,1144
+vmPOS_R,Right Crus II,0,1,False,False,1145
+vmPOS_R,Right VIIb,0,1,False,False,1146
+vmPOS_R,Vermis VI,0,1,False,False,1147
+vmPu_R,iOccG_L,0,1,False,False,1148
+vmPu_R,mOccG_L,0,4,False,False,1149
+vmPu_R,NAC_R,0,1,False,False,1150
