@@ -25,7 +25,9 @@ For each of the links (link_2) of in_file2
 '''
 csv_input_path = os.path.abspath('../csv_input')
 in_file1 = csv_input_path + '/BN_regions_review_links.csv'
-df_1 = pd.read_csv(in_file1, encoding = "ISO-8859-1",  error_bad_lines=False).values
+df_1 = pd.read_csv(in_file1, encoding = "ISO-8859-1",  error_bad_lines=False)
+columns1 = df_1.columns
+df_1 = df_1.values
 
 df = pd.DataFrame()
 
@@ -57,11 +59,13 @@ for name in name_2nd_region:
 # Hemisphere
 hemis_2nd_region_1 = df_1[:,2]
 
-in_file2 = csv_input_path + '/UC_OC_links_atlas_map.csv'
-df_2 = pd.read_csv(in_file2, encoding = "ISO-8859-1", error_bad_lines=False ).values
+in_file2 = csv_input_path + '/UC_OC_links_atlas_map_pivot_table.csv'
+df_2 = pd.read_csv(in_file2, encoding = "ISO-8859-1", error_bad_lines=False )
+columns2 = df_2.columns
+df_2 = df_2.values
 
 
-name_1st_region = df_2[:,5]
+name_1st_region = df_2[:,0]
 name_1st_region_refined_2 = []
 hemis_1st_region_2 = []
 hemis = None
@@ -84,7 +88,7 @@ for name in name_1st_region:
     hemis_1st_region_2.append(hemis)
 
 
-name_2nd_region = df_2[:,7]
+name_2nd_region = df_2[:,1]
 name_2nd_region_refined_2 = []
 hemis_2nd_region_2 = []
 
@@ -105,6 +109,9 @@ for name in name_2nd_region:
 
     name_2nd_region_refined_2.append(name_refined)
     hemis_2nd_region_2.append(hemis)
+
+replicated_df_hemis_region_joined = []
+replicated_df_hemis_region_seperate = []
 
 count = 0
 rep_links_review = []
@@ -130,110 +137,121 @@ for row_idx_df_2 in range(df_2.shape[0]):
                 win = True
 
             if win == True:
-                if (row_idx_df_1 + 2) not in rep_links_review:
+                if (row_idx_df_2 + 2) not in rep_links_review:
                     print('ABIDE I %s - Review %s'%(row_idx_df_2 + 2,row_idx_df_1 + 2))
-                    rep_links_review.append((row_idx_df_1 + 2))
+                    rep_links_review.append((row_idx_df_2 + 2))
+                    new_row_hemis_region_joined = np.concatenate((df_2[row_idx_df_2], df_1[row_idx_df_1]), axis=None)
+                    replicated_df_hemis_region_joined.append(new_row_hemis_region_joined)
                     count = count + 1
 print('Replicable links: %s'%count)
+out_file_path = 'ABIDE_Review_Consistent_Combined.csv'
+new_df = np.array(replicated_df_hemis_region_joined)
+new_df = pd.DataFrame(data=new_df, columns=np.concatenate((columns2, columns1), axis=None))
+new_df.to_csv(out_file_path,index=False)
 
 '''
 Results:
 
 Numbers are the row number (Index 1 is the header. Data starts from Index 2 of CSV)
 The following shows which row number of ABIDE1 is replicated with which row number of Review.
-ABIDE I 3 - Review 1213
-ABIDE I 12 - Review 1214
-ABIDE I 16 - Review 631
-ABIDE I 40 - Review 246
-ABIDE I 81 - Review 634
-ABIDE I 112 - Review 19
-ABIDE I 112 - Review 672
-ABIDE I 113 - Review 1317
-ABIDE I 116 - Review 89
-ABIDE I 132 - Review 629
-ABIDE I 133 - Review 1114
-ABIDE I 140 - Review 703
-ABIDE I 141 - Review 1324
-ABIDE I 144 - Review 121
-ABIDE I 205 - Review 358
-ABIDE I 206 - Review 1002
-ABIDE I 245 - Review 632
-ABIDE I 269 - Review 98
-ABIDE I 393 - Review 679
-ABIDE I 395 - Review 52
-ABIDE I 396 - Review 86
-ABIDE I 452 - Review 826
-ABIDE I 458 - Review 139
-ABIDE I 460 - Review 185
-ABIDE I 464 - Review 700
-ABIDE I 465 - Review 1323
-ABIDE I 482 - Review 69
-ABIDE I 488 - Review 1308
-ABIDE I 491 - Review 664
-ABIDE I 492 - Review 804
-ABIDE I 524 - Review 680
-ABIDE I 532 - Review 1440
-ABIDE I 535 - Review 662
-ABIDE I 538 - Review 1286
-ABIDE I 540 - Review 822
-ABIDE I 552 - Review 485
-ABIDE I 567 - Review 701
-ABIDE I 587 - Review 504
-ABIDE I 720 - Review 837
-ABIDE I 738 - Review 556
-ABIDE I 767 - Review 1446
-ABIDE I 889 - Review 374
-ABIDE I 900 - Review 1259
-ABIDE I 901 - Review 1212
-ABIDE I 907 - Review 208
-ABIDE I 907 - Review 1305
-ABIDE I 910 - Review 683
-ABIDE I 911 - Review 44
-ABIDE I 915 - Review 1436
-ABIDE I 918 - Review 779
-ABIDE I 918 - Review 782
-ABIDE I 919 - Review 656
-ABIDE I 923 - Review 596
-ABIDE I 924 - Review 630
-ABIDE I 940 - Review 733
-ABIDE I 951 - Review 1209
-ABIDE I 966 - Review 595
-ABIDE I 970 - Review 1302
-ABIDE I 971 - Review 659
-ABIDE I 976 - Review 13
-ABIDE I 978 - Review 233
-ABIDE I 978 - Review 670
-ABIDE I 998 - Review 4
-ABIDE I 1017 - Review 1096
-ABIDE I 1018 - Review 1518
-ABIDE I 1020 - Review 1332
-ABIDE I 1021 - Review 671
-ABIDE I 1023 - Review 345
-ABIDE I 1025 - Review 2
-ABIDE I 1032 - Review 343
-ABIDE I 1033 - Review 33
-ABIDE I 1117 - Review 1203
-ABIDE I 1336 - Review 1535
-ABIDE I 1361 - Review 238
-ABIDE I 1361 - Review 696
-ABIDE I 1362 - Review 108
-ABIDE I 1371 - Review 1120
-ABIDE I 1371 - Review 1124
-ABIDE I 1374 - Review 1090
-ABIDE I 1382 - Review 828
-ABIDE I 1389 - Review 258
-ABIDE I 1402 - Review 1119
-ABIDE I 1408 - Review 1412
-ABIDE I 1418 - Review 1048
-ABIDE I 1426 - Review 548
-ABIDE I 1428 - Review 315
-ABIDE I 1434 - Review 1420
-ABIDE I 1473 - Review 1352
-ABIDE I 1491 - Review 741
-ABIDE I 1502 - Review 858
-ABIDE I 1512 - Review 778
+ABIDE I 3 - Review 683
+ABIDE I 18 - Review 33
+ABIDE I 20 - Review 700
+ABIDE I 21 - Review 190
+ABIDE I 38 - Review 1436
+ABIDE I 74 - Review 594
+ABIDE I 82 - Review 1212
+ABIDE I 83 - Review 1216
+ABIDE I 84 - Review 1210
+ABIDE I 96 - Review 121
+ABIDE I 97 - Review 246
+ABIDE I 98 - Review 682
+ABIDE I 99 - Review 672
+ABIDE I 100 - Review 23
+ABIDE I 101 - Review 701
+ABIDE I 102 - Review 145
+ABIDE I 122 - Review 374
+ABIDE I 149 - Review 629
+ABIDE I 150 - Review 628
+ABIDE I 178 - Review 727
+ABIDE I 199 - Review 1436
+ABIDE I 210 - Review 1440
+ABIDE I 238 - Review 1285
+ABIDE I 239 - Review 1287
+ABIDE I 251 - Review 1286
+ABIDE I 285 - Review 659
+ABIDE I 286 - Review 659
+ABIDE I 287 - Review 18
+ABIDE I 288 - Review 210
+ABIDE I 289 - Review 662
+ABIDE I 303 - Review 1302
+ABIDE I 304 - Review 1302
+ABIDE I 306 - Review 208
+ABIDE I 307 - Review 210
+ABIDE I 309 - Review 1307
+ABIDE I 396 - Review 594
+ABIDE I 397 - Review 595
+ABIDE I 398 - Review 595
+ABIDE I 399 - Review 596
+ABIDE I 431 - Review 1211
+ABIDE I 432 - Review 1215
+ABIDE I 440 - Review 1208
+ABIDE I 441 - Review 1208
+ABIDE I 445 - Review 1209
+ABIDE I 446 - Review 1209
+ABIDE I 447 - Review 1210
+ABIDE I 460 - Review 1213
+ABIDE I 465 - Review 1214
+ABIDE I 487 - Review 33
+ABIDE I 494 - Review 86
+ABIDE I 501 - Review 89
+ABIDE I 503 - Review 90
+ABIDE I 504 - Review 2
+ABIDE I 513 - Review 223
+ABIDE I 516 - Review 679
+ABIDE I 523 - Review 680
+ABIDE I 525 - Review 139
+ABIDE I 537 - Review 144
+ABIDE I 538 - Review 4
+ABIDE I 539 - Review 13
+ABIDE I 540 - Review 161
+ABIDE I 542 - Review 199
+ABIDE I 543 - Review 180
+ABIDE I 624 - Review 373
+ABIDE I 638 - Review 1030
+ABIDE I 655 - Review 867
+ABIDE I 703 - Review 837
+ABIDE I 713 - Review 804
+ABIDE I 723 - Review 826
+ABIDE I 724 - Review 822
+ABIDE I 739 - Review 634
+ABIDE I 742 - Review 632
+ABIDE I 749 - Review 630
+ABIDE I 759 - Review 631
+ABIDE I 772 - Review 1259
+ABIDE I 775 - Review 1257
+ABIDE I 905 - Review 1442
+ABIDE I 1021 - Review 108
+ABIDE I 1026 - Review 130
+ABIDE I 1029 - Review 108
+ABIDE I 1032 - Review 106
+ABIDE I 1034 - Review 130
+ABIDE I 1042 - Review 236
+ABIDE I 1044 - Review 238
+ABIDE I 1048 - Review 227
+ABIDE I 1062 - Review 150
+ABIDE I 1063 - Review 142
+ABIDE I 1092 - Review 1119
+ABIDE I 1093 - Review 1120
+ABIDE I 1128 - Review 1075
+ABIDE I 1149 - Review 1534
+ABIDE I 1150 - Review 1537
+ABIDE I 1153 - Review 1536
+ABIDE I 1186 - Review 1535
+ABIDE I 1207 - Review 778
+ABIDE I 1225 - Review 1278
+Replicable links: 96
 
-I was able to replicate 91 links
 These replicated links might contain Links A-B and B-A. These links in the ABIDE analysis
 have an important role to play. As the analysis is Seed-voxel and not seed-seed, a symmetric
 result is not guranteed. But if we get a symetricity, then that specifies a strong connection between two regions.
@@ -241,7 +259,19 @@ result is not guranteed. But if we get a symetricity, then that specifies a stro
 Things to experiment:
 0.1 How many Links are both A-B and B-A.
 Answer: 79 pairs of A-B and B-A i.e 79 links were bidirectional
+using file - ABIDE_Review_Consistent_Combined_all_links_duplicate_clustered_others_clustered.csv got using
+experiments.py I came to know that out of the 96 replicable links, 52 are single links and 44 are A-B and B-A links
+i.e. 22 pairs
+
 Question: Are the above pairs consistent? That is, Is the connectivity of A-B == B-A
+
+After mapping the ABIDE Links to raw BN review links, I got a csv with 139 links. The number increased coz
+one ABIDE link might have mapped to multiple raw BN links. This gave me - for every ABIDE link what all links were
+reported in the literature and with what type of participants.
+
+
+
+
 
 1. How many of the replicated links were underconencted, overconnected or inconsistent
 2. How many of the replicate links had been replicated multiple times in Review (BN regions + CBLM)
