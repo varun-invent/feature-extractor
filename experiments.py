@@ -29,7 +29,7 @@ def label_duplicate_links(in_file, node1_idx_reverse = [1,0],\
 
         for idx1 in range(df_mat.shape[0]):
             found_duplicate = False
-            found_identical = True
+            found_identical = False
 
             if pd.notna(df_mat[idx1,node1_idx_reverse[0]]) or\
                 pd.notna(df_mat[idx1,node1_idx_reverse[int(len(node1_idx_reverse)/2)]]):
@@ -44,13 +44,13 @@ def label_duplicate_links(in_file, node1_idx_reverse = [1,0],\
                     # Keep one copy of indentically symmetrical links and remove all others
 
                     # If All the columns need to be considered
-                    if (df_mat[idx1,node1_idx] == df_mat[idx2,:]).all():
+                    # if (df_mat[idx1,node1_idx] == df_mat[idx2,:]).all():
 
                     # If only the ABIDE columns need to be considered
-                    # if (df_mat[idx1,node1_idx_reverse] == df_mat[idx2,sorted(node1_idx_reverse)]).all():
-                        label = label + 1
+                    if (df_mat[idx1,node1_idx_reverse] == df_mat[idx2,sorted(node1_idx_reverse)]).all():
                         i = i+1
                         if not found_duplicate:
+                            label = label + 1
                             new_df.append(np.append(df_mat[idx1,:], label))
                             print('-----------------------------------------------')
                             print(i,':',np.append(df_mat[idx1,:], label))
@@ -65,6 +65,11 @@ def label_duplicate_links(in_file, node1_idx_reverse = [1,0],\
                             found_duplicate = True
                         else:
                             # So that the symmetric links does not come again and again
+                            if experiment_str != 'no_duplicates_others_clustered':
+                                i = i+1
+                                new_df.append(np.append(df_mat[idx2,:], label))
+                                print(i,':',np.append(df_mat[idx2,:], label))
+
                             df_mat[idx2,:] = [np.nan]*len(df_mat[idx2,:])
 
                 # If no symmetric links are found
@@ -84,7 +89,7 @@ def label_duplicate_links(in_file, node1_idx_reverse = [1,0],\
 
 
         in_file_name = os.path.splitext(in_file)[0]
-        out_file_path = in_file_name + '_' + experiment_str + '_new2.csv'
+        out_file_path = in_file_name + '_' + experiment_str + '.csv'
         new_df = np.array(new_df)
         new_df = pd.DataFrame(data=new_df, columns=np.append(df.columns, 'Link_Label'))
         new_df.to_csv(out_file_path,index=False)
@@ -113,8 +118,8 @@ def label_duplicate_links(in_file, node1_idx_reverse = [1,0],\
 
 
 if __name__ == "__main__":
-    in_file = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined_label_added_2.csv'
-    # in_file = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined.csv'
+    # in_file = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined_label_added_2.csv'
+    in_file = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined.csv'
 
     node1_idx_reverse = [1,0]
     src_equals_dest_idx = 5
