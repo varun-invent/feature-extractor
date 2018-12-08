@@ -18,8 +18,8 @@ matches and participants have ABIDE in the string
 
 '''
 
-in_file1 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined.csv'
-
+# in_file1 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined.csv'
+in_file1 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_Review_Consistent_Combined_all_links_duplicate_clustered_others_clustered.csv'
 in_file2 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/raw_BN_regions_review_with_paper_id.csv'
 
 in_file3 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_distribution_in_review.csv'
@@ -63,7 +63,9 @@ for row_idx_1 in range(ABIDE_Review_Consistent_Combined_mat.shape[0]):
                 print(temp)
 
 
-out_file_path = 'ABIDE_Review_Consistent_Combined_label_added_2.csv'
+filename = in_file1.split('/')[-1].split('.')[0]
+out_file_path = filename + '_ABIDE_label_added.csv' 
+# out_file_path = 'ABIDE_Review_Consistent_Combined_ABIDE_label_added.csv'
 new_df = np.array(ABIDE_Review_Consistent_Combined_label_added)
 new_df = pd.DataFrame(data=new_df, columns=np.concatenate((ABIDE_Review_Consistent_Combined_df.columns, ['ABIDE_Label', 'paperID']), axis=None))
 new_df.to_csv(out_file_path,index=False)
