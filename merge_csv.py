@@ -2,7 +2,7 @@ import glob
 import pandas as pd
 import numpy as np
 
-def merge_csv(path_regex, out_file='combined.csv'):
+def merge_csv(path_regex, out_file):
     '''
     Merges various CSV files and append new column of ROI Index and Preproc type
     '''
@@ -29,9 +29,10 @@ def merge_csv(path_regex, out_file='combined.csv'):
 
 
 if __name__ == "__main__":
-    path_regex = "/home/varun/Projects/fmri/feature_extractor/data/**/*.csv"
-    out_file='combined1.csv'
-    merge_csv(path_regex)
+    # path_regex = "/home/varun/Projects/fmri/feature_extractor/data/**/*.csv"
+    path_regex = '/mnt/project2/home/varunk/fMRI/results/resultsABIDE2_1/fdrRes/**/*.csv'
+    out_file='combined_ABIDE2.csv'
+    merge_csv(path_regex,out_file)
 
 
 
