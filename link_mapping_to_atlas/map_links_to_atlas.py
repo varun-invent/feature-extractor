@@ -57,16 +57,16 @@ def get_roi_Num_Name_dict(atlasLabelsPath, ATLAS_XML_ZERO_START_INDEX):
 
 
 if __name__ == '__main__':
-    UC_brain_path = 'combined_brain_UC.nii.gz'
-    OC_brain_path = 'combined_brain_OC.nii.gz'
+    UC_brain_path = '../ABIDE1/combined_brain_UC_ABIDE1.nii.gz'
+    OC_brain_path = '../ABIDE1/combined_brain_OC_ABIDE1.nii.gz'
 
-    atlasLabelsPath = 'Full_brain_atlas_thr0-2mm/fullbrain_atlas.xml'
+    atlasLabelsPath = crt_path + '/Full_brain_atlas_thr0-2mm/fullbrain_atlas.xml'
     ATLAS_XML_ZERO_START_INDEX = True
 
     atlasDict = get_roi_Num_Name_dict(atlasLabelsPath, ATLAS_XML_ZERO_START_INDEX)
 
     thresh_UC = 10
-    thresh_OC = 6
+    thresh_OC = 10
 
     atlas = 'fb'
 
@@ -82,8 +82,12 @@ if __name__ == '__main__':
     Number of UC links common in at least 10 preproc pipelines is 13756
     Number of OC links common in at least 6 preproc pipelines is 2552
 
+    Number of OC links common in at least 10 preproc pipelines is 306 
+
     Number of UC links common in at least 17 preproc pipelines is 1120
     Number of OC links common in at least 17 preproc pipelines is 0
+
+
 
     '''
 
@@ -116,7 +120,7 @@ if __name__ == '__main__':
             df = df.assign(Conectivity=pd.Series([1]*df.shape[0]))
             combined_df = combined_df.append(df, ignore_index=True)
 
-    out_file = 'UC_OC_links_atlas_map.csv'
+    out_file = '../ABIDE1/UC_OC_ABIDE1_links_atlas_map10_10.csv'
     combined_df.to_csv(out_file,index= False)
 
     '''
