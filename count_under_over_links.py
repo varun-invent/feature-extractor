@@ -36,7 +36,7 @@ def get_links_count(in_file, thresh):
 
     return uc_links_count_list, oc_links_count_list
 
-def merge_csv(csv_path_regex, brain_path_regex, threshold, out_file='combined.csv'):
+def merge_csv(csv_path_regex, brain_path_regex, threshold, out_file):
     file_list = []
 
     combined_df = pd.DataFrame()
@@ -68,8 +68,12 @@ def merge_csv(csv_path_regex, brain_path_regex, threshold, out_file='combined.cs
 
 
 if __name__ == "__main__":
-    csv_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/**/*.csv"
-    brain_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/**/**/map_logq.nii.gz"
+    # csv_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/**/*.csv"
+    csv_path_regex = '/mnt/project2/home/varunk/fMRI/results/resultsABIDE2_1/fdrRes/**/*.csv'
+
+    # brain_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/**/**/map_logq.nii.gz"
+    brain_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE2_1/fdrRes/**/**/map_logq.nii.gz"
+
 
     # csv_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/calc_residual1smoothing1filt1calc_residual_optionsconst/*.csv"
     # brain_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/calc_residual1smoothing1filt1calc_residual_optionsconst/**/map_logq.nii.gz"
@@ -77,5 +81,5 @@ if __name__ == "__main__":
 
 
     threshold = 1.3
-    out_file='combined1_with_UC_OC.csv'
-    merge_csv(csv_path_regex, brain_path_regex, threshold)
+    out_file='combined_ABIDE2_with_UC_OC.csv'
+    merge_csv(csv_path_regex, brain_path_regex, threshold, out_file)
