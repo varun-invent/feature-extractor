@@ -10,6 +10,7 @@ For each link of review, it calculates, if there exists a corresponding link in
 the excel sheet for that and for which preproc type.
 
 Pseudo Code:
+------------
 in_file1 =  Read the Review links pivot table
 in_file2 = Read the all links ABIDE all peproc combined csv
 
@@ -19,8 +20,97 @@ For each link1 in in_file1:
             preproc_type = link2['preproc']
             link1['preproc_type'] = 1
 
+Update: 15 December 2018
+------------------------
+Also add the confounds removed by each of the link the study belonged to
+
+Pseudocode:
+----------
+
+
 '''
+def add_all_preproc_and_ABIDE_labels(in_file1,in_file2,in_file3,in_file4):
+
+    Review_ABIDE1_all_preproc_df = pd.read_csv(in_file1)
+    Review_ABIDE1_all_preproc_mat = Review_ABIDE1_all_preproc_df.values
+
+    raw_BN_regions_review_with_paper_id_df = pd.read_csv(in_file2,  error_bad_lines=False)
+    raw_BN_regions_review_with_paper_id_mat = raw_BN_regions_review_with_paper_id_df.values
+
+    ABIDE_distribution_in_review_df = pd.read_csv(in_file3)
+    ABIDE_distribution_in_review_mat = ABIDE_distribution_in_review_df.values
+
+    review_studyID_preproc_df = pd.read_csv(in_file4)
+    columns4 = list(review_studyID_preproc_df.columns)[1:]
+    review_studyID_preproc_mat = review_studyID_preproc_df.values
+
+
+    # Create paper_ID participant dict
+    paperID_ABIDE_dict = {}
+    for row_idx_3 in range(ABIDE_distribution_in_review_mat.shape[0]):
+        if 'ABIDE' in ABIDE_distribution_in_review_mat[row_idx_3][-1]:
+            paperID_ABIDE_dict[ABIDE_distribution_in_review_mat[row_idx_3][0]] = 'ABIDE'
+        else:
+            paperID_ABIDE_dict[ABIDE_distribution_in_review_mat[row_idx_3][0]] = ' '
+
+
+    #  Create paper_ID preproc dict
+    paperID_preproc_dict = {}
+    for row_idx_4 in range(review_studyID_preproc_mat.shape[0]):
+        paperID = review_studyID_preproc_mat[row_idx_4,0]
+        paperID_preproc_dict[paperID] = review_studyID_preproc_mat[row_idx_4,1:]
+
+
+
+    Review_ABIDE1_all_preproc_label_added = []
+    BN_idx_1 = [0,1,2,3]
+    BN_idx_2 = [0,1,2,3]
+    BN_paper_id_index = 4
+    for row_idx_1 in range(Review_ABIDE1_all_preproc_mat.shape[0]):
+        try:
+            row_1 = (''.join(Review_ABIDE1_all_preproc_mat[row_idx_1,BN_idx_1])).replace(',', '')
+        except TypeError:
+            import pdb; pdb.set_trace()
+        for row_idx_2 in range(raw_BN_regions_review_with_paper_id_mat.shape[0]):
+            if not pd.isnull(raw_BN_regions_review_with_paper_id_mat[row_idx_2, BN_idx_2]).any():
+                # print(row_idx_2)
+                row_2 = (''.join(raw_BN_regions_review_with_paper_id_mat[row_idx_2, BN_idx_2])).replace(',', '')
+                if (row_1 == row_2):
+                    paperID = raw_BN_regions_review_with_paper_id_mat[row_idx_2, BN_paper_id_index]
+
+                    # 1. Use the paperID to find the ABIDE label
+                    abide_label = paperID_ABIDE_dict[paperID]
+
+                    # 2. Use the floor(paperID) to find the Preproc pipeline
+                    preproc_list = paperID_preproc_dict[np.floor(paperID)]
+
+                    #  Add 1 and 2 to the final df
+
+                    temp1 = [abide_label, paperID]
+                    temp1.extend(preproc_list)
+
+                    temp2 = np.concatenate((Review_ABIDE1_all_preproc_mat[row_idx_1,:],\
+                                temp1),axis=None)
+                    Review_ABIDE1_all_preproc_label_added.append(temp2)
+                    print(temp2)
+
+
+
+    filename = in_file1.split('/')[-1].split('.')[0]
+    out_file_path = filename + 'all_preproc_ABIDE_label_added.csv'
+    # out_file_path = 'Review_ABIDE1_all_preproc_ABIDE_label_added.csv'
+    new_df = np.array(Review_ABIDE1_all_preproc_label_added)
+    temp3 = ['ABIDE_Label', 'paperID']
+    temp3.extend(columns4)
+
+    new_columns = np.concatenate((Review_ABIDE1_all_preproc_df.columns,temp3), axis=None)
+    new_df = pd.DataFrame(data=new_df, columns=new_columns)
+    new_df.to_csv(out_file_path,index=False)
+
+
 def find_consistent_links(in_file1, in_file2):
+
+    peak_value_idx = 1 # The peak value of a cluster region from CRT
 
     df_1 = pd.read_csv(in_file1, encoding = "ISO-8859-1",  error_bad_lines=False)
     columns1 = df_1.columns
@@ -125,6 +215,7 @@ def find_consistent_links(in_file1, in_file2):
             #  Setting all option falgs to default 0
         for row_idx_df_2 in range(df_2.shape[0]):
             win = False
+
             if (name_1st_region_refined_1[row_idx_df_1] == name_1st_region_refined_2[row_idx_df_2]) and \
             (name_2nd_region_refined_1[row_idx_df_1] == name_2nd_region_refined_2[row_idx_df_2]) :
                 h11 = hemis_1st_region_1[row_idx_df_1]
@@ -172,7 +263,14 @@ def find_consistent_links(in_file1, in_file2):
 
 
 if __name__ == '__main__':
-    csv_input_path = os.path.abspath('../csv_input')
-    in_file1 = csv_input_path + '/BN_regions_review_links.csv'
-    in_file2 = csv_input_path + '/ABIDE1_links_atlas_map_all_preproc_combined.csv'
-    find_consistent_links(in_file1, in_file2)
+    # csv_input_path = os.path.abspath('../csv_input')
+    # in_file1 = csv_input_path + '/BN_regions_review_links.csv'
+    # in_file2 = csv_input_path + '/ABIDE1_links_atlas_map_all_preproc_combined.csv'
+    # find_consistent_links(in_file1, in_file2)
+
+    in_file1 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/Review_ABIDE1_all_preproc.csv'
+    in_file2 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/raw_BN_regions_review_with_paper_id.csv'
+    in_file3 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_distribution_in_review.csv'
+    in_file4 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/review_studyID_preproc.csv'
+
+    add_all_preproc_and_ABIDE_labels(in_file1,in_file2,in_file3,in_file4)
