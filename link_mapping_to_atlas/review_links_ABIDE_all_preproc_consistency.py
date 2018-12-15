@@ -97,7 +97,7 @@ def add_all_preproc_and_ABIDE_labels(in_file1,in_file2,in_file3,in_file4):
 
 
     filename = in_file1.split('/')[-1].split('.')[0]
-    out_file_path = filename + 'all_preproc_ABIDE_label_added.csv'
+    out_file_path = filename + 'all_preproc_ABIDE_label_added_UC_OC_both.csv'
     # out_file_path = 'Review_ABIDE1_all_preproc_ABIDE_label_added.csv'
     new_df = np.array(Review_ABIDE1_all_preproc_label_added)
     temp3 = ['ABIDE_Label', 'paperID']
@@ -106,6 +106,26 @@ def add_all_preproc_and_ABIDE_labels(in_file1,in_file2,in_file3,in_file4):
     new_columns = np.concatenate((Review_ABIDE1_all_preproc_df.columns,temp3), axis=None)
     new_df = pd.DataFrame(data=new_df, columns=new_columns)
     new_df.to_csv(out_file_path,index=False)
+
+def set_preproc_flag_in_options_dict(options_dict):
+    '''
+    For each of the lists in the dict, do the followoing,
+    If the list contains both unique -1 and 1, then set the list to 0
+    If the list contains only -1 entries, then set list to -1
+    Else, set it to 1
+    '''
+    _options_dict = collections.OrderedDict()
+    for key,value in options_dict.items():
+        if options_dict[key] != []:
+            _options_dict[key] = np.unique(value).sum()
+        else:
+            _options_dict[key] = np.nan
+
+
+    return _options_dict
+
+
+
 
 
 def find_consistent_links(in_file1, in_file2):
@@ -211,8 +231,11 @@ def find_consistent_links(in_file1, in_file2):
     rep_links_review = []
     for row_idx_df_1 in range(df_1.shape[0]):
         for opt in options:
-            options_dict[opt] = 0
-            #  Setting all option falgs to default 0
+            # options_dict[opt] = 0
+            #  Setting all option flags to default 0
+            options_dict[opt] = []
+            #  Setting all option flags to default []
+
         for row_idx_df_2 in range(df_2.shape[0]):
             win = False
 
@@ -236,12 +259,21 @@ def find_consistent_links(in_file1, in_file2):
 
                 if win == True:
                     preproc_type = df_2[row_idx_df_2,-1]
-                    options_dict[preproc_type] = 1
+                    # options_dict[preproc_type] = 1
+                    if df_2[row_idx_df_2, peak_value_idx] > 0:
+                        options_dict[preproc_type].append(1)
+                    else:
+                        options_dict[preproc_type].append(-1)
+
+
                     print(' Review %s - ABIDE I %s'%(row_idx_df_1 + 2 ,row_idx_df_2 + 2))
                     # rep_links_review.append((row_idx_df_2 + 2))
                     new_row_hemis_region_joined = np.concatenate((df_1[row_idx_df_1], df_2[row_idx_df_2]), axis=None)
                     replicated_df_hemis_region_joined.append(new_row_hemis_region_joined)
                     # count = count + 1
+
+        options_dict = set_preproc_flag_in_options_dict(options_dict)
+        # Finds the net connectivity and sets the fconnectivity flag as -1,0 or 1
         options_keys = list(options_dict.keys())
         options_values = list(options_dict.values())
         new_row_consistent_df_all_preproc = np.concatenate((df_1[row_idx_df_1,:], options_values),axis=None)
@@ -249,26 +281,26 @@ def find_consistent_links(in_file1, in_file2):
 
 
     # print('Replicable links: %s'%count)
-    out_file_path = '../ABIDE1/Review_ABIDE1_all_preproc.csv'
+    out_file_path = '../ABIDE1/Review_ABIDE1Review_ABIDE1_all_preproc_UC_OC_both.csv'
     new_df = np.array(consistent_df_all_preproc)
     new_df = pd.DataFrame(data=new_df, columns=np.concatenate((columns1, options), axis=None))
     new_df.to_csv(out_file_path,index=False)
 
     # Saving the replicated_df_hemis_region_joined to check is the code is matching links correctly
 
-    out_file_path = '../ABIDE1/ABIDE1_Review_ABIDE1_all_preproc_check_consistency_matches.csv'
+    out_file_path = '../ABIDE1/Review_ABIDE1_all_preproc_check_consistency_matches.csv'
     new_df = np.array(replicated_df_hemis_region_joined)
     new_df = pd.DataFrame(data=new_df, columns=np.concatenate((columns1, columns2), axis=None))
     new_df.to_csv(out_file_path,index=False)
 
 
 if __name__ == '__main__':
-    # csv_input_path = os.path.abspath('../csv_input')
+    csv_input_path = os.path.abspath('../csv_input')
     # in_file1 = csv_input_path + '/BN_regions_review_links.csv'
     # in_file2 = csv_input_path + '/ABIDE1_links_atlas_map_all_preproc_combined.csv'
     # find_consistent_links(in_file1, in_file2)
 
-    in_file1 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/Review_ABIDE1_all_preproc.csv'
+    in_file1 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/Review_ABIDE1_all_preproc_UC_OC_both.csv'
     in_file2 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/raw_BN_regions_review_with_paper_id.csv'
     in_file3 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/ABIDE_distribution_in_review.csv'
     in_file4 = '/mnt/project1/home1/varunk/fMRI/feature-extractor/csv_input/review_studyID_preproc.csv'
