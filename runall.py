@@ -1,8 +1,9 @@
-import subprocess
 import os
+import numpy as np
 
 step1 = 0
-step2 = 1
+step2 = 0
+step3 = 1
 
 '''
 1. This will create seperate UC and OC Consistent conenctomes that contains
@@ -41,4 +42,34 @@ if step2:
     out_file_prefix = '../ABIDE%s/map_links_to_atlas/ABIDE%s_links_atlas_map'%(ABIDE, ABIDE)
     cmd = "python3 map_links_to_atlas.py %s %s %s"%(UC_brain_path, OC_brain_path, out_file_prefix)
     os.system(cmd)
+    print(cmd)
+    os.chdir('..') # Change the directory back to original
+    print("====================================================================")
+
+'''
+3. Manually create pivot tables for each of the files created above.
+Then run the follwing script to find the links common with the links of review
+and create a new csv.
+'''
+if step3:
+    print("====================================================================")
+    #  Change the path to link_mapping_to_atlas folder
+    os.chdir('link_mapping_to_atlas')
+    print('Changed the directory to : ',os.getcwd())
+    #  Using the same as used in Step 2 TODO: Modify script to pass it as args in Step 2
+    thresh_UC  = np.arange(8,17,2)
+    thresh_OC  = np.arange(8,17,2)
+    thresh_UC_OC_list = list(zip(thresh_UC, thresh_OC))
+
+    in_file1 = '../csv_input/BN_regions_review_links.csv'
+    for thresh_UC_OC in thresh_UC_OC_list:
+        in_file2 ='../ABIDE%s/map_links_to_atlas_pivot_tables/ABIDE%s_links_atlas_map_UC%s_OC%s\ -\ Pivot\ Table\ 1.csv'%(ABIDE,ABIDE,thresh_UC_OC[0],thresh_UC_OC[1])
+        out_file_path = '../ABIDE%s/ABIDE%s_review_common_combined/ABIDE%s_review_common_combined_UC%s_OC%s.csv'%(ABIDE,ABIDE,ABIDE,thresh_UC_OC[0],thresh_UC_OC[1])
+
+        cmd = "python3 find_common_links.py %s %s %s"%(in_file1, in_file2, out_file_path)
+        print(cmd)
+        os.system(cmd)
+
+
+    os.chdir('..') # Change the directory back to original
     print("====================================================================")
