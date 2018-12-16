@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import merge_csv as mc
 import nibabel as nib
-
+import sys
 '''
 1. Load all the 16 brain in memory. Threshold the 16 brains.
 2. Create a result brain
@@ -23,7 +23,7 @@ def find_consistent_links(brain_list_OC, brain_list_UC):
     return combined_brain_OC, combined_brain_UC
 
 def merge_brains(csv_path_regex, brain_path_regex, threshold,\
-                out_file_OC='combined_brain_OC.nii.gz', out_file_UC='combined_brain_UC.nii.gz'):
+                out_file_OC, out_file_UC):
     opt_list = []
     brain_list_OC = []
     brain_list_UC = []
@@ -64,7 +64,12 @@ def merge_brains(csv_path_regex, brain_path_regex, threshold,\
 
 
 if __name__ == "__main__":
-    ABIDE = 1
+    try:
+        ABIDE = int(sys.argv[1])
+    except:
+        print('Usage python3 <script_name> <1 or 2>')
+
+    print('Computing ABIDE %s UC and OC maps'%ABIDE)
 
     if ABIDE == 1:
         csv_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE1_4/fdrRes/**/*.csv"
