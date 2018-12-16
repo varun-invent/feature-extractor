@@ -8,7 +8,7 @@ import nibabel as nib
 1. Load all the 16 brain in memory. Threshold the 16 brains.
 2. Create a result brain
 3. Iterate through all the 16 brains and then create new brain which contains links,
-with value of each link being the number of perprocessing pipelines it was present in. 
+with value of each link being the number of perprocessing pipelines it was present in.
 '''
 
 
@@ -64,8 +64,21 @@ def merge_brains(csv_path_regex, brain_path_regex, threshold,\
 
 
 if __name__ == "__main__":
-    csv_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE1_4/fdrRes/**/*.csv"
-    brain_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE1_4/fdrRes/**/**/map_logq.nii.gz"
+    ABIDE = 1
+
+    if ABIDE == 1:
+        csv_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE1_4/fdrRes/**/*.csv"
+        brain_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE1_4/fdrRes/**/**/map_logq.nii.gz"
+    elif ABIDE == 2:
+        csv_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE2_1/fdrRes/**/*.csv"
+        brain_path_regex = "/mnt/project2/home/varunk/fMRI/results/resultsABIDE2_1/fdrRes/**/**/map_logq.nii.gz"
+    else:
+        raise Exception('Wrong ABIDE flag')
+
+    print('Reading the following directories regex: ' )
+    print(csv_path_regex)
+    print(brain_path_regex)
+
 
     # csv_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/calc_residual1smoothing1filt1calc_residual_optionsconst/*.csv"
     # brain_path_regex = "/home/varun/Projects/fmri/feature_extractor/data/calc_residual1smoothing1filt1calc_residual_optionsconst/**/map_logq.nii.gz"
@@ -73,6 +86,11 @@ if __name__ == "__main__":
 
 
     threshold = 1.3
-    out_file_OC='combined_brain_OC.nii.gz'
-    out_file_UC='combined_brain_UC.nii.gz'
+    out_file_OC='ABIDE%s/combined_brain_OC_ABIDE%s.nii.gz'%(ABIDE, ABIDE)
+    out_file_UC='ABIDE%s/combined_brain_UC_ABIDE%s.nii.gz'%(ABIDE, ABIDE)
+
     merge_brains(csv_path_regex, brain_path_regex, threshold,out_file_OC,out_file_UC)
+
+    print('Output Files')
+    print(out_file_OC)
+    print(out_file_UC)
