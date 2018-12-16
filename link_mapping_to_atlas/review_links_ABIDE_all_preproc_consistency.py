@@ -131,6 +131,7 @@ def set_preproc_flag_in_options_dict(options_dict):
 def find_consistent_links(in_file1, in_file2):
 
     peak_value_idx = 1 # The peak value of a cluster region from CRT
+    region_indices = [7, 5] # ROI , Region index
 
     df_1 = pd.read_csv(in_file1, encoding = "ISO-8859-1",  error_bad_lines=False)
     columns1 = df_1.columns
@@ -177,7 +178,7 @@ def find_consistent_links(in_file1, in_file2):
     for opt in options:
         options_dict[opt] = 0
 
-    region_indices = [5,7]
+
 
     name_1st_region = df_2[:,region_indices[0]]
     name_1st_region_refined_2 = []
