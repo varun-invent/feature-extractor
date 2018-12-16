@@ -110,8 +110,13 @@ def get_roi_Num_Name_dict(atlasLabelsPath, ATLAS_XML_ZERO_START_INDEX):
 
 
 if __name__ == '__main__':
-    UC_brain_path = '../ABIDE1/combined_brain_UC_ABIDE1.nii.gz'
-    OC_brain_path = '../ABIDE1/combined_brain_OC_ABIDE1.nii.gz'
+    # UC_brain_path = '../ABIDE1/combined_brain_UC_ABIDE1.nii.gz'
+    # OC_brain_path = '../ABIDE1/combined_brain_OC_ABIDE1.nii.gz'
+    # out_file_prefix = 'ABIDE1/ABIDE1_links_atlas_map'
+
+    UC_brain_path = sys.argv[1]
+    OC_brain_path = sys.argv[2]
+    out_file_prefix = sys.argv[3]
 
     atlasLabelsPath = crt_path + '/Full_brain_atlas_thr0-2mm/fullbrain_atlas.xml'
     ATLAS_XML_ZERO_START_INDEX = True
@@ -144,12 +149,17 @@ if __name__ == '__main__':
     #
     # '''
 
-    out_file_prefix = 'ABIDE1/ABIDE1_links_atlas_map'
+
     # out_file = map_links_to_atlas(thresh_UC, UC_brain_path, thresh_OC, OC_brain_path, out_file_prefix)
 
     thresh_UC  = np.arange(8,17,2)
     thresh_OC  = np.arange(8,17,2)
+
     thresh_UC_OC = list(zip(thresh_UC, thresh_OC))
+    print('Using the following (UC, OC) thresholds:')
+    print(thresh_UC_OC)
+
+    #  Set of args that does not change and is used by all the workers
     fixed_args = [UC_brain_path, OC_brain_path, out_file_prefix]
 
     input_list = []
