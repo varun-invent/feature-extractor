@@ -1,153 +1,176 @@
 import pandas as pd
 import numpy as np
 import os
-'''
-Next is:
-1. Read the Links in review and extract the XML type names for BN regions.
-2. Break each of the region names so that their hemisphere is another column.
-3. Consider C as Both L and R while matching links.
-4. For each link got here, check how many are replicated.
+import sys
 
-HOWTO:
+def find_common_links_ABIDE_review(in_file1, in_file2, out_file_path):
 
-in_file1 = Read the review links file
-From the 2nd and 4th column extract the name of the region by name.split('_')[1].split(',')[0]
-in_file2 = Read the ABIDE BN regions file
-Split the 2 region name's columns into 4 columns -
- Two hemisphere columns by getting each hemisphere by name.split('_')[-1]
- And other by name.split('_')[0]
+    print(in_file1)
+    print(in_file2)
+    print(out_file_path)
 
-For each of the links (link_2) of in_file2
-    Loop through each of the links (link_1) of in_file1
-        if(link_1 == link2)
-            dict[link_1] = dict[link_1] + 1
+    '''
+    Note: In the following script, by replicated I just mean the links are common
+    or same. they may differ in connectivity 
+    Next is:
+    1. Read the Links in review and extract the XML type names for BN regions.
+    2. Break each of the region names so that their hemisphere is another column.
+    3. Consider C as Both L and R while matching links.
+    4. For each link got here, check how many are replicated/ common.
 
-'''
-csv_input_path = os.path.abspath('../csv_input')
-in_file1 = csv_input_path + '/BN_regions_review_links.csv'
-df_1 = pd.read_csv(in_file1, encoding = "ISO-8859-1",  error_bad_lines=False)
-columns1 = df_1.columns
-df_1 = df_1.values
+    HOWTO:
 
-df = pd.DataFrame()
+    in_file1 = Read the review links file
+    From the 2nd and 4th column extract the name of the region by name.split('_')[1].split(',')[0]
+    in_file2 = Read the ABIDE BN regions file
+    Split the 2 region name's columns into 4 columns -
+     Two hemisphere columns by getting each hemisphere by name.split('_')[-1]
+     And other by name.split('_')[0]
 
-name_1st_region = df_1[:,1]
+    For each of the links (link_2) of in_file2
+        Loop through each of the links (link_1) of in_file1
+            if(link_1 == link2)
+                dict[link_1] = dict[link_1] + 1
 
-name_1st_region_refined_1 = []
-for name in name_1st_region:
-    try:
-        name_refined = name.split('_')[1].split(',')[0]
-    except IndexError:
-        name_refined = name
-
-    name_1st_region_refined_1.append(name_refined)
-
-# Hemisphere
-hemis_1st_region_1 = df_1[:,0]
+    '''
+    # csv_input_path = os.path.abspath('../csv_input')
+    # in_file1 = csv_input_path + '/BN_regions_review_links.csv'
+    # in_file2 = csv_input_path + '/UC_OC_ABIDE1_links_atlas_map10_10_pivot_table.csv'
 
 
-name_2nd_region = df_1[:,3]
-name_2nd_region_refined_1 = []
-for name in name_2nd_region:
-    try:
-        name_refined = name.split('_')[1].split(',')[0]
-    except IndexError:
-        name_refined = name
+    df_1 = pd.read_csv(in_file1, encoding = "ISO-8859-1",  error_bad_lines=False)
+    columns1 = df_1.columns
+    df_1 = df_1.values
 
-    name_2nd_region_refined_1.append(name_refined)
+    df = pd.DataFrame()
 
-# Hemisphere
-hemis_2nd_region_1 = df_1[:,2]
+    name_1st_region = df_1[:,1]
 
-in_file2 = csv_input_path + '/UC_OC_links_atlas_map_pivot_table.csv'
-df_2 = pd.read_csv(in_file2, encoding = "ISO-8859-1", error_bad_lines=False )
-columns2 = df_2.columns
-df_2 = df_2.values
+    name_1st_region_refined_1 = []
+    for name in name_1st_region:
+        try:
+            name_refined = name.split('_')[1].split(',')[0]
+        except IndexError:
+            name_refined = name
 
+        name_1st_region_refined_1.append(name_refined)
 
-name_1st_region = df_2[:,0]
-name_1st_region_refined_2 = []
-hemis_1st_region_2 = []
-hemis = None
-for name in name_1st_region:
-    try:
-        name_refined = name.split('_')[0]
-        hemis = name.split('_')[1]
-    except IndexError:
-        #  Cerebellum
-        if name.split(' ')[0] == 'Left':
-            hemis = 'L'
-        elif name.split(' ')[0] == 'Right':
-            hemis = 'R'
-        else:
-            hemis = 'C'
-        name_refined = name
-    # except AttributeError:
-    #     print(name)
-    name_1st_region_refined_2.append(name_refined)
-    hemis_1st_region_2.append(hemis)
+    # Hemisphere
+    hemis_1st_region_1 = df_1[:,0]
 
 
-name_2nd_region = df_2[:,1]
-name_2nd_region_refined_2 = []
-hemis_2nd_region_2 = []
+    name_2nd_region = df_1[:,3]
+    name_2nd_region_refined_1 = []
+    for name in name_2nd_region:
+        try:
+            name_refined = name.split('_')[1].split(',')[0]
+        except IndexError:
+            name_refined = name
 
-for name in name_2nd_region:
-    try:
-        name_refined = name.split('_')[0]
-        hemis = name.split('_')[1]
+        name_2nd_region_refined_1.append(name_refined)
 
-    except IndexError:
-        #  Cerebellum
-        if name.split(' ')[0] == 'Left':
-            hemis = 'L'
-        elif name.split(' ')[0] == 'Right':
-            hemis = 'R'
-        else:
-            hemis = 'C'
-        name_refined = name
+    # Hemisphere
+    hemis_2nd_region_1 = df_1[:,2]
 
-    name_2nd_region_refined_2.append(name_refined)
-    hemis_2nd_region_2.append(hemis)
+    df_2 = pd.read_csv(in_file2, encoding = "ISO-8859-1", error_bad_lines=False )
+    columns2 = df_2.columns
+    df_2 = df_2.values
 
-replicated_df_hemis_region_joined = []
-replicated_df_hemis_region_seperate = []
 
-count = 0
-rep_links_review = []
-for row_idx_df_2 in range(df_2.shape[0]):
-    for row_idx_df_1 in range(df_1.shape[0]):
-        win = False
-        if (name_1st_region_refined_1[row_idx_df_1] == name_1st_region_refined_2[row_idx_df_2]) and \
-        (name_2nd_region_refined_1[row_idx_df_1] == name_2nd_region_refined_2[row_idx_df_2]) :
-            h11 = hemis_1st_region_1[row_idx_df_1]
-            h12 = hemis_1st_region_2[row_idx_df_2]
-            h21 = hemis_2nd_region_1[row_idx_df_1]
-            h22 = hemis_2nd_region_2[row_idx_df_2]
-            if 'C' in [h11, h12] and 'C' in [h21, h22]:
-                win = True
-            elif 'C' in [h11, h12]:
-                if (hemis_2nd_region_1[row_idx_df_1] == hemis_2nd_region_2[row_idx_df_2]):
+    name_1st_region = df_2[:,0]
+    name_1st_region_refined_2 = []
+    hemis_1st_region_2 = []
+    hemis = None
+    for name in name_1st_region:
+        try:
+            name_refined = name.split('_')[0]
+            hemis = name.split('_')[1]
+        except IndexError:
+            #  Cerebellum
+            if name.split(' ')[0] == 'Left':
+                hemis = 'L'
+            elif name.split(' ')[0] == 'Right':
+                hemis = 'R'
+            else:
+                hemis = 'C'
+            name_refined = name
+        # except AttributeError:
+        #     print(name)
+        name_1st_region_refined_2.append(name_refined)
+        hemis_1st_region_2.append(hemis)
+
+
+    name_2nd_region = df_2[:,1]
+    name_2nd_region_refined_2 = []
+    hemis_2nd_region_2 = []
+
+    for name in name_2nd_region:
+        try:
+            name_refined = name.split('_')[0]
+            hemis = name.split('_')[1]
+
+        except IndexError:
+            #  Cerebellum
+            if name.split(' ')[0] == 'Left':
+                hemis = 'L'
+            elif name.split(' ')[0] == 'Right':
+                hemis = 'R'
+            else:
+                hemis = 'C'
+            name_refined = name
+
+        name_2nd_region_refined_2.append(name_refined)
+        hemis_2nd_region_2.append(hemis)
+
+    replicated_df_hemis_region_joined = []
+    replicated_df_hemis_region_seperate = []
+
+    count = 0
+    rep_links_review = []
+    for row_idx_df_2 in range(df_2.shape[0]):
+        for row_idx_df_1 in range(df_1.shape[0]):
+            win = False
+            if (name_1st_region_refined_1[row_idx_df_1] == name_1st_region_refined_2[row_idx_df_2]) and \
+            (name_2nd_region_refined_1[row_idx_df_1] == name_2nd_region_refined_2[row_idx_df_2]) :
+                h11 = hemis_1st_region_1[row_idx_df_1]
+                h12 = hemis_1st_region_2[row_idx_df_2]
+                h21 = hemis_2nd_region_1[row_idx_df_1]
+                h22 = hemis_2nd_region_2[row_idx_df_2]
+                if 'C' in [h11, h12] and 'C' in [h21, h22]:
                     win = True
-            elif 'C' in [h21, h22]:
-                if (hemis_1st_region_1[row_idx_df_1] == hemis_1st_region_2[row_idx_df_2]):
+                elif 'C' in [h11, h12]:
+                    if (hemis_2nd_region_1[row_idx_df_1] == hemis_2nd_region_2[row_idx_df_2]):
+                        win = True
+                elif 'C' in [h21, h22]:
+                    if (hemis_1st_region_1[row_idx_df_1] == hemis_1st_region_2[row_idx_df_2]):
+                        win = True
+                elif (hemis_1st_region_1[row_idx_df_1] == hemis_1st_region_2[row_idx_df_2]) and \
+                    (hemis_2nd_region_1[row_idx_df_1] == hemis_2nd_region_2[row_idx_df_2]):
                     win = True
-            elif (hemis_1st_region_1[row_idx_df_1] == hemis_1st_region_2[row_idx_df_2]) and \
-                (hemis_2nd_region_1[row_idx_df_1] == hemis_2nd_region_2[row_idx_df_2]):
-                win = True
 
-            if win == True:
-                if (row_idx_df_2 + 2) not in rep_links_review:
-                    print('ABIDE I %s - Review %s'%(row_idx_df_2 + 2,row_idx_df_1 + 2))
-                    rep_links_review.append((row_idx_df_2 + 2))
-                    new_row_hemis_region_joined = np.concatenate((df_2[row_idx_df_2], df_1[row_idx_df_1]), axis=None)
-                    replicated_df_hemis_region_joined.append(new_row_hemis_region_joined)
-                    count = count + 1
-print('Replicable links: %s'%count)
-out_file_path = 'ABIDE_Review_Consistent_Combined.csv'
-new_df = np.array(replicated_df_hemis_region_joined)
-new_df = pd.DataFrame(data=new_df, columns=np.concatenate((columns2, columns1), axis=None))
-new_df.to_csv(out_file_path,index=False)
+                if win == True:
+                    if (row_idx_df_2 + 2) not in rep_links_review:
+                        print('ABIDE II %s - Review %s'%(row_idx_df_2 + 2,row_idx_df_1 + 2))
+                        rep_links_review.append((row_idx_df_2 + 2))
+                        new_row_hemis_region_joined = np.concatenate((df_2[row_idx_df_2], df_1[row_idx_df_1]), axis=None)
+                        replicated_df_hemis_region_joined.append(new_row_hemis_region_joined)
+                        count = count + 1
+    print('Common links: %s'%count)
+    new_df = np.array(replicated_df_hemis_region_joined)
+    new_df = pd.DataFrame(data=new_df, columns=np.concatenate((columns2, columns1), axis=None))
+    new_df.to_csv(out_file_path,index=False)
+
+
+if __name__ == '__main__':
+    # csv_input_path = os.path.abspath('../csv_input')
+    # in_file1 = csv_input_path + '/BN_regions_review_links.csv'
+    # in_file2 = csv_input_path + '/UC_OC_ABIDE1_links_atlas_map10_10_pivot_table.csv'
+    # out_file_path = '../ABIDE1/ABIDE1_Review_Consistent_Combined_10_10.csv'
+
+    in_file1 = sys.argv[1] # BN Review links
+    in_file2 = sys.argv[2] # ABIDE links pivot table
+    out_file_path = sys.argv[3]
+    find_common_links_ABIDE_review(in_file1, in_file2, out_file_path)
 
 '''
 Results:
