@@ -2,8 +2,8 @@ import os
 import numpy as np
 
 step1 = 0
-step2 = 0
-step3 = 1
+step2 = 1
+step3 = 0
 
 '''
 1. This will create seperate UC and OC Consistent conenctomes that contains
@@ -57,8 +57,11 @@ if step3:
     os.chdir('link_mapping_to_atlas')
     print('Changed the directory to : ',os.getcwd())
     #  Using the same as used in Step 2 TODO: Modify script to pass it as args in Step 2
-    thresh_UC  = np.arange(8,17,2)
-    thresh_OC  = np.arange(8,17,2)
+    # thresh_UC  = np.arange(8,17,2)
+    # thresh_OC  = np.arange(8,17,2)
+    thresh_UC = [1]
+    thresh_OC = [1]
+
     thresh_UC_OC_list = list(zip(thresh_UC, thresh_OC))
 
     in_file1 = '../csv_input/BN_regions_review_links.csv'
@@ -73,3 +76,32 @@ if step3:
 
     os.chdir('..') # Change the directory back to original
     print("====================================================================")
+
+'''
+4. For each of the above creatd common file, Calculate the precision and recall
+and then calculate the F-score.
+
+Precision:
+---------
+a = Count of all the ABIDE links that have atleast one end point in review BN regions
+b = Count of all the ABIDE links that were consistent (Not just common) with the review BN regions
+
+Note: A replicated ABIDE link is consistent by default if the review link is inconsistent
+precision (p) = b/a
+
+Recall:
+--------
+
+c = Count of All the consistent replicated BN region links = b
+d = Count of total BN review links
+
+Note: A replicated ABIDE link is consistent by default if the review link is inconsistent
+
+recall (r) = c/d (or) b/d
+
+F-Score
+------
+
+f = 1 / ( (1/p) + (1/r) )
+
+'''
