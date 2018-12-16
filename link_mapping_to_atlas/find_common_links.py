@@ -3,15 +3,25 @@ import numpy as np
 import os
 import sys
 
+
+def calc_prec_recall_f_score(a, b, d):
+    p = b/a
+    r = b/d
+    f = 1/((1/p) + (1/r))
+    return p, r, f
+
 def find_common_links_ABIDE_review(in_file1, in_file2, out_file_path):
 
-    print(in_file1)
-    print(in_file2)
-    print(out_file_path)
+    # print(in_file1)
+    # print(in_file2)
+    # print(out_file_path)
+
+    ABIDE_UC_OC_idx = [2,3]
+    review_UC_OC_idx = [6,7]
 
     '''
     Note: In the following script, by replicated I just mean the links are common
-    or same. they may differ in connectivity 
+    or same. they may differ in connectivity
     Next is:
     1. Read the Links in review and extract the XML type names for BN regions.
     2. Break each of the region names so that their hemisphere is another column.
@@ -126,10 +136,17 @@ def find_common_links_ABIDE_review(in_file1, in_file2, out_file_path):
     replicated_df_hemis_region_seperate = []
 
     count = 0
+    a = 0 # Used for calculating precision
+    # 'a' = Count of all the ABIDE links that have atleast one end point in review BN regions.
+    b = 0
+    # b = Count of all the ABIDE links that were consistent (Not just common) with the review BN regions
+    d = df_1.shape[0]
+
     rep_links_review = []
     for row_idx_df_2 in range(df_2.shape[0]):
         for row_idx_df_1 in range(df_1.shape[0]):
             win = False
+            win1 = False
             if (name_1st_region_refined_1[row_idx_df_1] == name_1st_region_refined_2[row_idx_df_2]) and \
             (name_2nd_region_refined_1[row_idx_df_1] == name_2nd_region_refined_2[row_idx_df_2]) :
                 h11 = hemis_1st_region_1[row_idx_df_1]
@@ -149,16 +166,65 @@ def find_common_links_ABIDE_review(in_file1, in_file2, out_file_path):
                     win = True
 
                 if win == True:
+                    # I believe that as we are daling with just pivot table this ...
+                    # ... section will executed just once. So things will work.
                     if (row_idx_df_2 + 2) not in rep_links_review:
                         print('ABIDE II %s - Review %s'%(row_idx_df_2 + 2,row_idx_df_1 + 2))
                         rep_links_review.append((row_idx_df_2 + 2))
                         new_row_hemis_region_joined = np.concatenate((df_2[row_idx_df_2], df_1[row_idx_df_1]), axis=None)
                         replicated_df_hemis_region_joined.append(new_row_hemis_region_joined)
                         count = count + 1
+                        a = a + 1
+                        if df_1[row_idx_df_1, review_UC_OC_idx[0]] > 0 and df_1[row_idx_df_1, review_UC_OC_idx[1]] > 0:
+                             # inconsistent BN review link
+                             b = b + 1
+                        elif df_2[row_idx_df_2,ABIDE_UC_OC_idx[0]] > 0 and df_2[row_idx_df_2,ABIDE_UC_OC_idx[1]] > 0:
+                            #  Inconsistent ABIDE Link
+                            pass
+                        elif df_1[row_idx_df_1, review_UC_OC_idx[0]] > 0 and df_2[row_idx_df_2,ABIDE_UC_OC_idx[0]] > 0:
+                            # Review and ABIDE are both UC
+                            b = b + 1
+                        elif df_1[row_idx_df_1, review_UC_OC_idx[0]] > 0 and df_2[row_idx_df_2,ABIDE_UC_OC_idx[0]] > 0:
+                            # Review and ABIDE are both OC
+                            b = b + 1
+
+            else:
+                '''
+                Even if there is no win, we can check of df_2 links that at least
+                one end point in df_1 is same. And if it is, then we increment 'a'
+                where,
+                'a' = Count of all the ABIDE links that have atleast one end point in review BN regions
+                '''
+                if (name_1st_region_refined_1[row_idx_df_1] == name_1st_region_refined_2[row_idx_df_2]):
+                    h11 = hemis_1st_region_1[row_idx_df_1]
+                    h12 = hemis_1st_region_2[row_idx_df_2]
+                    if 'C' in [h11, h12]:
+                        win1 = True
+                    elif h11 == h12:
+                        win1 = True
+                elif (name_2nd_region_refined_1[row_idx_df_1] == name_2nd_region_refined_2[row_idx_df_2]):
+                    h21 = hemis_2nd_region_1[row_idx_df_1]
+                    h22 = hemis_2nd_region_2[row_idx_df_2]
+                    if 'C' in [h21, h22]:
+                        win1 = True
+                    elif h21 == h22:
+                        win1 = True
+
+        if win1 == True:
+            a = a + 1
+            # import pdb; pdb.set_trace()
+
     print('Common links: %s'%count)
     new_df = np.array(replicated_df_hemis_region_joined)
     new_df = pd.DataFrame(data=new_df, columns=np.concatenate((columns2, columns1), axis=None))
     new_df.to_csv(out_file_path,index=False)
+
+    # Calculate Precision, recall and F-score
+    p, r, f = calc_prec_recall_f_score(a, b, d)
+    save_vals = [a,b,d,p,r,f]
+    out_file_path_prf = os.path.splitext(out_file_path)[0] + '_prf.txt'
+    np.savetxt(out_file_path_prf, save_vals, delimiter = ',', header='a,b,d,p,r,f')
+
 
 
 if __name__ == '__main__':
@@ -172,8 +238,12 @@ if __name__ == '__main__':
     out_file_path = sys.argv[3]
     find_common_links_ABIDE_review(in_file1, in_file2, out_file_path)
 
+
+
+
+
 '''
-Results:
+Old Results:
 
 Numbers are the row number (Index 1 is the header. Data starts from Index 2 of CSV)
 The following shows which row number of ABIDE1 is replicated with which row number of Review.
